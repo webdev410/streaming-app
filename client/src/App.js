@@ -13,6 +13,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Video from "./components/Video";
+import Profile from "./pages/Profile";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -45,6 +46,9 @@ function App() {
 				<Navbar />
 				<Route exact path="/">
 					<Home />
+				</Route>
+				<Route exact path="/me">
+					<Profile />
 				</Route>
 				<Route exact path="/video">
 					<Video />
