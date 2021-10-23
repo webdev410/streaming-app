@@ -18,8 +18,9 @@ export default function Video() {
 	return (
 		<div>
 			<h1>Video Component</h1>
-			<p>Paste your twitch link here</p>
-			<form action="#">
+
+			<button onClick={setWebDev}>See WebDev410's Stream</button>
+			{/* <form action="#">
 				<input
 					value={videoUrl}
 					type="text"
@@ -27,8 +28,7 @@ export default function Video() {
 					onChange={handleInputChange}
 					placeholder="Video Link"
 				/>
-			</form>
-			<button onClick={setWebDev}>See WebDev410's Stream</button>
+			</form> */}
 			<ReactPlayer url={videoUrl} />
 		</div>
 	);
