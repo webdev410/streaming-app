@@ -9,6 +9,12 @@ export default function Video() {
 		const inputValue = target.value;
 		setVideoUrl(inputValue);
 	};
+	const setWebDev = (e) => {
+		// Getting the value and name of the input which triggered the change
+		e.preventDefault();
+		const inputValue = "https://www.twitch.tv/webdev410";
+		setVideoUrl(inputValue);
+	};
 	return (
 		<div>
 			<h1>Video Component</h1>
@@ -22,6 +28,7 @@ export default function Video() {
 					placeholder="Video Link"
 				/>
 			</form>
+			<button onClick={setWebDev}>See WebDev410's Stream</button>
 			<ReactPlayer url={videoUrl} />
 		</div>
 	);
