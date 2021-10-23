@@ -11,6 +11,7 @@ const Navbar = () => {
 		<div>
 			<h1>T.E.A.M.</h1>
 			<a href="/">Home</a>
+			<a href="/video">Video</a>
 
 			<div>
 				{Auth.loggedIn() ? (
