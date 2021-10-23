@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactPlayer from "react-player/twitch";
+import ReactPlayer from "react-player";
 export default function Video() {
 	const [videoUrl, setVideoUrl] = useState("");
 	const handleInputChange = (e) => {
@@ -23,11 +23,6 @@ export default function Video() {
 				/>
 			</form>
 			<ReactPlayer url={videoUrl} />
-			<iframe
-				title={`${videoUrl}`}
-				src={videoUrl}
-				allowfullscreen="<allowfullscreen>"
-			></iframe>
 		</div>
 	);
 }
