@@ -12,12 +12,14 @@ const resolvers = {
 		},
 		me: async (parent, context) => {
 			if (context.user) {
-			  return User.findOne({ _id: context.user._id }).populate('events');
+				return User.findOne({ _id: context.user._id }).populate(
+					"events"
+				);
 			}
-			throw new AuthenticationError('You need to be logged in!');
-		  },
-		  event: async (parent, { _id: eventId }) => {
-			return Event.findOne({ _id: eventId });
+			throw new AuthenticationError("You need to be logged in!");
+		},
+		getEvent: async (parent, { eventId }) => {
+			return await Event.findOne({ _id: eventId }).populate("user");
 		},
 	},
 

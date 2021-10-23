@@ -8,7 +8,7 @@ const typeDefs = gql`
 		email: String
 		password: String
 		isPremium: Boolean
-		createdAt: Date
+		createdAt: String
 		events: [Event]
 	}
 
@@ -19,15 +19,15 @@ const typeDefs = gql`
 		eventLink: String
 		isPublished: Boolean
 		isPremiumContent: Boolean
-		eventDate: Date
-		createdAt: Date
+		eventDate: String
+		createdAt: String
 		user: User
 		category: Category
 		likes: [User]
 		comments: [Comment]
 	}
 
-	type Event {
+	type Category {
 		_id: ID
 		name: String
 	}
@@ -47,6 +47,7 @@ const typeDefs = gql`
 	type Query {
 		user(username: String!): User
 		me: User
+		getEvent(eventId: ID): Event
 	}
 
 	type Mutation {
