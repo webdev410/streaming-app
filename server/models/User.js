@@ -24,10 +24,20 @@ const userSchema = new Schema({
 		required: true,
 		minlength: 5,
 	},
-	thoughts: [
+	isPremium: {
+		type: Boolean,
+		default: false,
+		required: true,
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now,
+		get: (timestamp) => dateFormat(timestamp),
+	  },
+	events: [
 		{
 			type: Schema.Types.ObjectId,
-			ref: "Thought",
+			ref: "Event",
 		},
 	],
 });
