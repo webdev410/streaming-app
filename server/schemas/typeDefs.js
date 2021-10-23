@@ -7,6 +7,29 @@ const typeDefs = gql`
 		username: String
 		email: String
 		password: String
+		isPremium: Boolean
+		createdAt: Date
+		events: [Event]
+	}
+
+	type Event {
+		_id: ID
+		eventTitle: String
+		eventDescription: String
+		eventLink: String
+		isPublished: Boolean
+		isPremiumContent: Boolean
+		eventDate: Date
+		createdAt: Date
+		user: User
+		category: Category
+		likes: [User]
+		comments: [Comment]
+	}
+
+	type Event {
+		_id: ID
+		name: String
 	}
 
 	type Comment {
