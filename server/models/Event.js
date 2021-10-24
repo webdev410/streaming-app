@@ -6,7 +6,7 @@ const eventSchema = new Schema({
     type: String,
     required: 'You need to have a title!',
     minlength: 1,
-    maxlength: 280,
+    maxlength: 120,
     trim: true,
   },
   eventDescription: {
