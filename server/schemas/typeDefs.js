@@ -46,8 +46,8 @@ const typeDefs = gql`
 
 	type Query {
 		user(username: String!): User
-		getEvent(eventId: ID): Event
 		me: User
+		events:[Event]
 	}
 
 	type Mutation {
@@ -58,6 +58,11 @@ const typeDefs = gql`
 			password: String!
 		): Auth
 		login(email: String!, password: String!): Auth
+		addEvent(
+		eventTitle: String!
+		eventDescription: String!
+		eventLink: String
+		): Event
 	}
 `;
 

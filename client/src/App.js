@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Video from "./components/Video";
 import Profile from "./pages/Profile";
+import EventForm from "./components/EventForm/index";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -58,6 +59,9 @@ function App() {
 				</Route>
 				<Route exact path="/signup">
 					<Signup />
+				</Route>
+				<Route exact path="/new-event">
+					<EventForm />
 				</Route>
 			</Router>
 		</ApolloProvider>

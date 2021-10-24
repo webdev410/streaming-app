@@ -8,20 +8,39 @@ const resolvers = {
 		// 	return User.find().populate("thoughts");
 		// },
 		user: async (parent, { username }) => {
-			return User.findOne({ username });
+			return User.findOne({ username }).populate('events');
 		},
-		getEvent: async (parent, { eventId }) => {
-			return await Event.findOne({ _id: eventId }).populate("user");
-		},
+	
 		me: async (parent, args, context) => {
 			if (context.user) {
 				return await User.findOne({ _id: context.user._id });
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
+		events: async (parent, args, context) => {
+			return Event.find().populate("user")
+		}
 	},
 
 	Mutation: {
+		addEvent: async (parent,  {eventTitle, eventDescription, eventLink}, context) => {
+            if (context.user) {
+                const event = await Event.create({
+                    eventTitle,
+					eventDescription,
+					eventLink,
+                    user: context.user.username,
+                });
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { events: event._id } }
+                );
+                return event
+            }
+            throw new AuthenticationError('You need to be logged in!')
+        },
+
+
 		addUser: async (parent, { name, username, email, password }) => {
 			const user = await User.create({ name, username, email, password });
 			const token = signToken(user);
