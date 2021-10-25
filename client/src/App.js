@@ -13,6 +13,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Video from "./components/Video";
+import Chat from "./components/Chat";
 import Profile from "./pages/Profile";
 import EventForm from "./components/EventForm/index";
 
@@ -53,6 +54,9 @@ function App() {
 				</Route>
 				<Route exact path="/video">
 					<Video />
+				</Route>
+				<Route exact path="/chat">
+					<Chat />
 				</Route>
 				<Route exact path="/login">
 					<Login />

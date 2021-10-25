@@ -15,5 +15,14 @@
 	"license": "ISC",
 	"devDependencies": {
 		"concurrently": "^5.1.0"
+	},
+	"dependencies": {
+		"jquery": "^3.6.0",
+		"moment": "^2.29.1",
+		"react-dots-loader": "^1.1.4",
+		"semantic-ui-react": "^2.0.4",
+		"socket.io": "^4.3.1",
+		"socket.io-client": "^4.3.2",
+		"uuid": "^8.3.2"
 	}
 }
