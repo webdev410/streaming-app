@@ -10,10 +10,10 @@ const Navbar = () => {
 	return (
 		<div>
 			<h1>T.E.A.M.</h1>
-			<a href="/">Home</a>
-			<a href="/video">Video</a>
-			<a href="/chat">Chat</a>
-			<a href="/new-event">New Event</a>
+			<Link to="/">Home</Link>
+			<Link to="/video">Video</Link>
+			<Link to="/chat">Chat</Link>
+			<Link to="/new-event">New Event</Link>
 
 			{Auth.loggedIn() ? (
 				<>
@@ -29,12 +29,8 @@ const Navbar = () => {
 				</>
 			) : (
 				<>
-					<Link className="btn btn-lg btn-info m-2" to="/login">
-						Login
-					</Link>
-					<Link className="btn btn-lg btn-light m-2" to="/signup">
-						Signup
-					</Link>
+					<Link to="/login">Login</Link>
+					<Link to="/signup">Signup</Link>
 				</>
 			)}
 		</div>
