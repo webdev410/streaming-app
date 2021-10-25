@@ -73,6 +73,7 @@ export default function EventForm() {
 
       <form action="#" method="post" onSubmit={handleFormSubmit}>
         <input
+          className="form-input"
           type="text"
           name="eventTitle"
           value={formState.eventTitle}
@@ -80,6 +81,7 @@ export default function EventForm() {
           placeholder="Event Title"
         />
         <input
+          className="form-input"
           type="text"
           name="eventDescription"
           value={formState.eventDescription}
@@ -87,13 +89,14 @@ export default function EventForm() {
           placeholder="Event Description"
         />
         <input
+          className="form-input"
           type="text"
           name="eventLink"
           value={formState.eventLink}
           onChange={handleChange}
           placeholder="Event Link"
         />
-        <button type="submit">Submit</button>
+        <button className="btn btn-block btn-primary" type="submit">Submit</button>
         {error && <div className="">Something went wrong...</div>}
       </form>
 
