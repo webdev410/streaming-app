@@ -10,7 +10,7 @@ const db = require("./config/connection");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-//Chat App Mods
+//Chat App Modifications
 const server2 = require('http').createServer(app)
 const io = require('socket.io')(server2)
 const socketManage = require('./socketManage')(io)
