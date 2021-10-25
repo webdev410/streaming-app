@@ -34,11 +34,10 @@ const Profile = () => {
 
 	return (
 		<div>
-			<div className="">
-				<h2 className="">
-					Viewing {userParam ? `${user.username}'s` : "your"} profile.
+			<div className="ui container">
+				<h2 className="ui header">
+					{userParam ? `${user.username}'s` : "Your"} Profile
 				</h2>
-				<h2>Profile Info</h2>
 				<p>{user.name}</p>
 				<p>{user.username}</p>
 				<p>{user.email}</p>
