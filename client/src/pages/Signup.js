@@ -7,105 +7,107 @@ import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const Signup = () => {
-	const [formState, setFormState] = useState({
-		name: "",
-		username: "",
-		email: "",
-		password: "",
-	});
-	const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [formState, setFormState] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
-	const handleChange = (event) => {
-		const { name, value } = event.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-		setFormState({
-			...formState,
-			[name]: value,
-		});
-	};
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-	const handleFormSubmit = async (event) => {
-		event.preventDefault();
-		console.log(formState);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
 
-		try {
-			const { data } = await addUser({
-				variables: { ...formState },
-			});
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
 
-			Auth.login(data.addUser.token);
-		} catch (e) {
-			console.error(e);
-		}
-	};
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
-	return (
-		<main className="flex-row justify-center mb-4">
-			<div className="col-12 col-lg-10">
-				<div className="card">
-					<h4 className="card-header bg-dark text-light p-2">
-						Sign Up
-					</h4>
-					<div className="card-body">
-						{data ? (
-							<p>
-								Success! You may now head{" "}
-								<Link to="/">back to the homepage.</Link>
-							</p>
-						) : (
-							<form onSubmit={handleFormSubmit}>
-								<input
-									className="form-input"
-									placeholder="Full Name"
-									name="name"
-									type="text"
-									value={formState.name}
-									onChange={handleChange}
-								/>
-								<input
-									className="form-input"
-									placeholder="Username"
-									name="username"
-									type="text"
-									value={formState.username}
-									onChange={handleChange}
-								/>
-								<input
-									className="form-input"
-									placeholder="Your email"
-									name="email"
-									type="email"
-									value={formState.email}
-									onChange={handleChange}
-								/>
-								<input
-									className="form-input"
-									placeholder="******"
-									name="password"
-									type="password"
-									value={formState.password}
-									onChange={handleChange}
-								/>
-								<button
-									className="btn btn-block btn-primary"
-									style={{ cursor: "pointer" }}
-									type="submit"
-								>
-									Submit
-								</button>
-							</form>
-						)}
+  return (
+    <main>
+      <div className="ui container">
+        <h2 className="ui header">Sign Up</h2>
+        <div>
+          {data ? (
+            <p>
+              Success! You may now head{" "}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <form className="ui form" onSubmit={handleFormSubmit}>
+              <div className="field">
+                <input
+									autoFocus
+                  placeholder="Full Name"
+                  name="name"
+                  type="text"
+                  value={formState.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="field">
+                <input
+                  className="form-input"
+                  placeholder="Username"
+                  name="username"
+                  type="text"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="field">
+                <input
+                  className="form-input"
+                  placeholder="Your email"
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="field">
+                <input
+                  className="form-input"
+                  placeholder="******"
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+              </div>
+              <button
+                className="ui submit button"
+                style={{ cursor: "pointer" }}
+                type="submit"
+              >
+                Submit
+              </button>
+            </form>
+          )}
 
-						{error && (
-							<div className="my-3 p-3 bg-danger text-white">
-								{error.message}
-							</div>
-						)}
-					</div>
-				</div>
-			</div>
-		</main>
-	);
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          )}
+        </div>
+      </div>
+    </main>
+  );
 };
 
 export default Signup;

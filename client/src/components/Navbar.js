@@ -9,7 +9,7 @@ const Navbar = () => {
 	};
 	return (
 		<div>
-			<h1>T.E.A.M.</h1>
+			<h1>T.E.A.M. Stream</h1>
 			<Link to="/">Home</Link>
 			<Link to="/video">Video</Link>
 			<Link to="/chat">Chat</Link>
@@ -17,15 +17,15 @@ const Navbar = () => {
 
 			{Auth.loggedIn() ? (
 				<>
-					<Link className="btn btn-lg btn-info m-2" to="/me">
+					<Link className="" to="/me">
 						{Auth.getProfile().data.name}'s profile
 					</Link>
-					<button
-						className="btn btn-lg btn-light m-2"
+					<Link
+						className=""
 						onClick={logout}
 					>
 						Logout
-					</button>
+					</Link>
 				</>
 			) : (
 				<>
