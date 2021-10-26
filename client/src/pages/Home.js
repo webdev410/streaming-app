@@ -2,8 +2,8 @@ import React from "react";
 
 const Home = () => {
 	return (
-		<main>
-			<div className="ui container">
+		<main className="ui raised padded container segment">
+			<div>
 				<h2 className="ui header">Home Page</h2>
 			</div>
 		</main>
