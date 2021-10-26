@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-
+const Order = require("./Order");
 const userSchema = new Schema({
 	name: {
 		type: String,
@@ -33,13 +33,14 @@ const userSchema = new Schema({
 		type: Date,
 		default: Date.now,
 		get: (timestamp) => dateFormat(timestamp),
-	  },
+	},
 	events: [
 		{
 			type: Schema.Types.ObjectId,
 			ref: "Event",
 		},
 	],
+	orders: [Order.schema],
 });
 
 userSchema.pre("save", async function (next) {
