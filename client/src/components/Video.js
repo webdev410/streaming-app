@@ -16,10 +16,10 @@ export default function Video() {
 		setVideoUrl(inputValue);
 	};
 	return (
-		<div>
-			<h1>Video Component</h1>
+		<div className="ui raised padded container segment">
+			<h2 className="ui header">Video Component</h2>
 
-			<button onClick={setWebDev}>See WebDev410's Stream</button>
+			<button className="ui submit button" onClick={setWebDev}>See WebDev410's Stream</button>
 			{/* <form action="#">
 				<input
 					value={videoUrl}

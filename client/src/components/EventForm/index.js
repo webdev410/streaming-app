@@ -59,7 +59,7 @@ export default function EventForm() {
 	};
 
 	return (
-		<div className="ui container">
+		<div className="ui raised padded container segment">
 			<h2 className="ui header">Event Form</h2>
 			<div>
 				<p
@@ -107,7 +107,7 @@ export default function EventForm() {
 							placeholder="Event Link"
 						/>
 					</div>
-					<button className="ui submit button" type="submit">
+					<button className="ui primary button" type="submit">
 						Submit
 					</button>
 					{error && <div className="">Something went wrong...</div>}

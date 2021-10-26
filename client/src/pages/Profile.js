@@ -33,16 +33,14 @@ const Profile = () => {
 	}
 
 	return (
-		<div>
-			<div className="ui container">
-				<h2 className="ui header">
-					{userParam ? `${user.username}'s` : "Your"} Profile
-				</h2>
-				<p>{user.name}</p>
-				<p>{user.username}</p>
-				<p>{user.email}</p>
-				{/* for each post by this user, show details */}
-			</div>
+		<div className="ui raised padded container segment">
+			<h2 className="ui header">
+				{userParam ? `${user.username}'s` : "Your"} Profile
+			</h2>
+			<p>{user.name}</p>
+			<p>{user.username}</p>
+			<p>{user.email}</p>
+			{/* for each post by this user, show details */}
 		</div>
 	);
 };
