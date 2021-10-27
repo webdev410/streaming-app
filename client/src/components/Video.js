@@ -19,8 +19,8 @@ export default function Video() {
 		<div className="ui raised padded container segment">
 			<h2 className="ui header">Video Component</h2>
 
-			<button className="ui submit button" onClick={setWebDev}>See WebDev410's Stream</button>
-			{/* <form action="#">
+			{/* <button className="ui submit button" onClick={setWebDev}>See WebDev410's Stream</button> */}
+			<form action="#">
 				<input
 					value={videoUrl}
 					type="text"
@@ -28,7 +28,7 @@ export default function Video() {
 					onChange={handleInputChange}
 					placeholder="Video Link"
 				/>
-			</form> */}
+			</form>
 			<ReactPlayer url={videoUrl} />
 		</div>
 	);

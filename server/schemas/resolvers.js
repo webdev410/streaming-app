@@ -108,7 +108,7 @@ const resolvers = {
 					eventTitle,
 					eventDescription,
 					eventLink,
-					user: context.user.username,
+					user: context.user._id,
 				});
 				await User.findOneAndUpdate(
 					{ _id: context.user._id },
