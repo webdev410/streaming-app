@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_EVENT } from "../../utils/mutations";
-import { QUERY_EVENTS, QUERY_ME } from "../../utils/queries";
+import { QUERY_EVENTS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import EventList from "./EventList";
 

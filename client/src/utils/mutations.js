@@ -86,26 +86,26 @@ export const ADD_ORDER = gql`
 //   }
 // `;
 //
-// export const ADD_COMMENT = gql`
-//   mutation addComment(
-//     $thoughtId: ID!
-//     $commentText: String!
-//     $commentAuthor: String!
-//   ) {
-//     addComment(
-//       thoughtId: $thoughtId
-//       commentText: $commentText
-//       commentAuthor: $commentAuthor
-//     ) {
-//       _id
-//       thoughtText
-//       thoughtAuthor
-//       createdAt
-//       comments {
-//         _id
-//         commentText
-//         createdAt
-//       }
-//     }
-//   }
-// `;
+export const ADD_COMMENT = gql`
+	mutation addComment(
+		$thoughtId: ID!
+		$commentText: String!
+		$commentAuthor: String!
+	) {
+		addComment(
+			thoughtId: $thoughtId
+			commentText: $commentText
+			commentAuthor: $commentAuthor
+		) {
+			_id
+			thoughtText
+			thoughtAuthor
+			createdAt
+			comments {
+				_id
+				commentText
+				createdAt
+			}
+		}
+	}
+`;

@@ -1,3 +1,9 @@
 a {
     margin: 10px;
 }
+
+.eventDiv {
+    border: 1px black solid;
+    margin: 10px;
+    padding: 10px;
+}
