@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { ADD_EVENT } from "../../utils/mutations";
 import { QUERY_EVENTS, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import EventList from "./EventList";
 
 export default function EventForm() {
+	const { loading, data } = useQuery(QUERY_EVENTS);
+	const eventList = data?.events;
+
 	const [formState, setFormState] = useState({
 		eventTitle: "",
 		eventDescription: "",
@@ -22,13 +25,8 @@ export default function EventForm() {
 					data: { events: [addEvent, ...events] },
 				});
 			} catch (error) {
-				console.log(error);
+				console.log("in the cache", error);
 			}
-			const { me } = cache.readQuery({ query: QUERY_ME });
-			cache.writeQuery({
-				query: QUERY_ME,
-				data: { me: { ...me, events: [...me.events, addEvent] } },
-			});
 		},
 	});
 
@@ -64,7 +62,7 @@ export default function EventForm() {
 			<div>
 				<p
 					className={`m-0 ${
-						characterCount === 280 || error ? "text-danger" : ""
+						characterCount === 120 || error ? "text-danger" : ""
 					}`}
 				>
 					Character Count: {characterCount}/120
@@ -110,14 +108,13 @@ export default function EventForm() {
 					<button className="ui primary button" type="submit">
 						Submit
 					</button>
+					<pre>{JSON.stringify(error, null, 2)}</pre>
 					{error && <div className="">Something went wrong...</div>}
 				</form>
 
-				{/* <div>
-         < EventList 
-         events={formState}
-         />
-      </div> */}
+				<div>
+					<EventList events={eventList} />
+				</div>
 			</div>
 		</div>
 	);

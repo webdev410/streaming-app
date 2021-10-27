@@ -33,6 +33,11 @@ export const QUERY_EVENTS = gql`
 			_id
 			eventTitle
 			eventDescription
+			eventLink
+			eventDate
+			createdAt
+			isPublished
+			isPremiumContent
 			user {
 				_id
 				name
