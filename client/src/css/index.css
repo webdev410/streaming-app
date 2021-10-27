@@ -1,9 +1,26 @@
-a {
+/* Background image courtesy of https://pngtree.com/free-backgrounds, free background photos from pngtree.com */
+
+
+body {
+    margin:10px;
+    background-image: url("../assets/—Pngtree—elegant abstract smooth swoosh speed_1179370.jpg");
+    background-size: cover;
+}
+
+.navLink {
     margin: 10px;
+    font-size: 15px;
+    font-weight: 700;
 }
 
 .eventDiv {
     border: 1px black solid;
     margin: 10px;
     padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .navlink {
+        display: block;
+    }
 }

@@ -6,7 +6,7 @@ import Cart from "../components/Cart";
 
 export default function Shop() {
 	return (
-		<div>
+		<div className="ui raised padded container segment">
 			<CategoryMenu />
 			<ProductList />
 			<Cart />
