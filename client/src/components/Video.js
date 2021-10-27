@@ -14,8 +14,9 @@ export default function Video() {
 		<div className="ui raised padded container segment">
 			<h2 className="ui header">Video Component</h2>
 
-			<form action="#">
+			<form className="ui form" action="#">
 				<input
+					className="field"
 					value={videoUrl}
 					type="text"
 					name="videoUrl"
