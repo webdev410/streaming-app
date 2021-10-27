@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const EventList = ({ events }) => {
 	console.log(events);
 
@@ -7,12 +7,10 @@ const EventList = ({ events }) => {
 		<div>
 			{events &&
 				events.map((event) => (
-					<div key={event._id} className="">
-						<p>{event.eventTitle}</p>
+					<div key={event._id} className="eventDiv">
+						<h2>{event.eventTitle}</h2>
 						<p>{event.eventDescription}</p>
-						<p>{event.eventLink}</p>
-
-						<div className=""></div>
+						<Link to={event.eventLink}>{event.eventLink}</Link>
 					</div>
 				))}
 		</div>
