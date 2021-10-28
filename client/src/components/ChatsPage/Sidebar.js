@@ -103,7 +103,7 @@ export class Sidebar extends Component {
             <Icon name='chat' />
             {/*<Header.Content> Simple Chat </Header.Content>*/}
             <Header.Subheader>
-              Logged in as:<br />{user.username}
+              Logged in as:<br />{user.nickname}
             </Header.Subheader>
           </Header>
           {/*<Menu.Menu>

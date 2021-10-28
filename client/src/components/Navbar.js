@@ -18,7 +18,7 @@ const Navbar = () => {
 				{Auth.loggedIn() ? (
 					<>
 						<Link to="/video" className="navLink">Event</Link>
-						<Link to="/chat" className="navLink">Chat</Link>
+						{/*<Link to="/chat" className="navLink">Chat</Link>*/}
 						<Link to="/new-event" className="navLink">New Event</Link>
 						<Link to="/shop" className="navLink">Shop</Link>
 						<Link to="/me" className="navLink">
