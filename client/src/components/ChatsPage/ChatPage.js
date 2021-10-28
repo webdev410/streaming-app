@@ -127,7 +127,7 @@ export class ChatPage extends Component {
     let { activeChannel, chats } = this.state
     return (
       <Grid style={{ height: 'calc(100vh - 139px)', margin: '10px 0 0 0'}}>
-        <Grid.Column computer={4} tablet={ 4 } mobile={6} style={{ background: '#4183c4', height: '100%'}}>
+        <Grid.Column computer={5} tablet={ 5 } mobile={6} style={{ background: '#4183c4', height: '100%'}}>
           <Sidebar
             user = { user }
             users = { users }
@@ -140,7 +140,7 @@ export class ChatPage extends Component {
             pChats = { pChats }
           />
         </Grid.Column>
-        <Grid.Column computer={12} tablet={ 12 } mobile={10} style={{ background: '#4183c4', height: '100%'}}>
+        <Grid.Column computer={11} tablet={ 11 } mobile={10} style={{ background: '#4183c4', height: '100%'}}>
         {
           activeChannel && (
             <React.Fragment>

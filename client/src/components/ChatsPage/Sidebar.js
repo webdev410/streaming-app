@@ -128,12 +128,12 @@ export class Sidebar extends Component {
           <Menu.Menu>
             <Menu.Item style={{ paddingLeft: '0' }}>
               <Button
-                icon
+                /*icon*/
                 inverted
                 labelPosition='right'
                 onClick={logout}
               >
-                <Icon name='sign-out alternate' />
+                {/*<Icon name='sign-out alternate' />*/}
                 LogOut
               </Button>
             </Menu.Item>

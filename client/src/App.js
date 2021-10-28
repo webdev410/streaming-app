@@ -21,6 +21,7 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import Detail from "./pages/Detail";
 import Shop from "./pages/Shop";
+import Footer from "./components/Footer";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
 	uri: "/graphql",
@@ -84,6 +85,7 @@ function App() {
 					<Route exact path="/products/:id" component={Detail} />
 				</StoreProvider>
 			</Router>
+			<Footer />
 		</ApolloProvider>
 	);
 }

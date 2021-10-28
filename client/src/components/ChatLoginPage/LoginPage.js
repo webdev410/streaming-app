@@ -38,7 +38,7 @@ export class LoginPage extends Component {
         textAlign='center'
         verticalAlign='middle'
       >
-        <Grid.Column computer={ 6 } tablet={ 8 } mobile={ 14 } >
+        <Grid.Column computer={ 16 } tablet={ 16 } mobile={ 16 } >
           <Header as='h2' icon textAlign='center' color='blue'>
             <Icon name='discussions' />
             Simple Chats.
