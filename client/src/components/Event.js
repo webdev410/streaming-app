@@ -50,10 +50,8 @@ export default function Event() {
           comments={event.comments} />
         </Grid.Column>
 				<Grid.Column computer={6} tablet={ 16 } mobile={16}>
-        <div className="six wide column subSection">
           <Chat />
-        </div>
-      </Grid.Column>
+        </Grid.Column>
 			</Grid>
     </div>
   );
