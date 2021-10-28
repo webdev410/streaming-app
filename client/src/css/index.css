@@ -5,6 +5,7 @@ body {
     margin:10px;
     background-image: url("../assets/—Pngtree—elegant abstract smooth swoosh speed_1179370.jpg");
     background-size: cover;
+    height: calc(100vh - 10px);
 }
 
 .navLink {
@@ -17,6 +18,10 @@ body {
     border: 1px black solid;
     margin: 10px;
     padding: 10px;
+}
+
+.cart {
+    background-color: #fff !important;
 }
 
 @media screen and (max-width: 600px) {

@@ -20,8 +20,8 @@ export class MessagesBody extends Component {
   render() {
     let { messages , user, typingUser } = this.props
     return (
-      <Segment style={{ height: 'calc( 100vh - 56px - 147px)'}}>
-        <div ref='contaniner' style={{  height:'calc( 100vh - 56px - 147px - 35px)', overflowY: 'auto'}}>
+      <Segment style={{ height: 'calc( 100vh - 56px - 55px - 139px )'}}>
+        <div ref='contaniner' style={{  height:'calc( 100vh - 56px - 55px - 35px - 129px )', overflowY: 'auto'}}>
           <div style={{ minHeight: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '.1em', paddingRight: '.5em' }}>
             {
               messages.length > 0 && (
@@ -31,7 +31,7 @@ export class MessagesBody extends Component {
                       style={{ padding: '3px 10px' }} 
                       textAlign={ message.sender === user.nickname ? 'right' : 'left' }>
                       <h3>{message.message}</h3>
-                      {message.sender[0].toUpperCase() + message.sender.slice(1)} Send @ { moment(message.timef).fromNow()}
+                      {message.sender} sent @ { moment(message.timef).fromNow()}
                     </Card.Content>
                   </Card>
                 ))
@@ -40,7 +40,7 @@ export class MessagesBody extends Component {
             { 
               typingUser && typingUser.map( name => (
                 <div key={name} className="typing-user">
-									{`${name[0].toUpperCase() + name.slice(1)} is typing . . .`}
+									{`${name} is typing . . .`}
 								</div>
               ))
             }

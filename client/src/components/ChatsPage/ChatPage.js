@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import events from '../../events'
 import { Grid } from 'semantic-ui-react'
 import Sidebar from './Sidebar';
-import MessageHeader from './MessageHeader'
+//import MessageHeader from './MessageHeader'
 import MessagesBody from './MessagesBody'
 import MessageInput from './MessageInput'
 
@@ -126,8 +126,8 @@ export class ChatPage extends Component {
     let { user, users, pChats, logout, socket } = this.props
     let { activeChannel, chats } = this.state
     return (
-      <Grid style={{ height: '100vh', margin: '0px'}}>
-        <Grid.Column computer={4} tablet={ 4 } mobile={6} style={{ background: '#4c3c4c', height: '100%'}}>
+      <Grid style={{ height: 'calc(100vh - 139px)', margin: '10px 0 0 0'}}>
+        <Grid.Column computer={4} tablet={ 4 } mobile={6} style={{ background: '#4183c4', height: '100%'}}>
           <Sidebar
             user = { user }
             users = { users }
@@ -140,11 +140,11 @@ export class ChatPage extends Component {
             pChats = { pChats }
           />
         </Grid.Column>
-        <Grid.Column computer={12} tablet={ 12 } mobile={10} style={{ background: '#eee', height: '100%'}}>
+        <Grid.Column computer={12} tablet={ 12 } mobile={10} style={{ background: '#4183c4', height: '100%'}}>
         {
           activeChannel && (
             <React.Fragment>
-              <MessageHeader activeChannel= { activeChannel } />
+              {/*<MessageHeader activeChannel= { activeChannel } />*/}
               <MessagesBody 
                 messages = { activeChannel.messages } 
                 user={ user } 

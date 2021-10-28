@@ -34,7 +34,7 @@ export class LoginPage extends Component {
   render() {
     return (
       <Grid
-        style={{ height: '100vh', padding: '0px', margin: '0px' }}
+        style={{ padding: '0px', margin: '0px' }}
         textAlign='center'
         verticalAlign='middle'
       >
