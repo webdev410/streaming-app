@@ -56,7 +56,6 @@ const typeDefs = gql`
 	type Comment {
 		_id: ID
 		commentText: String
-		commentAuthor: String
 		createdAt: String
 	}
 
@@ -69,6 +68,7 @@ const typeDefs = gql`
 		user(username: String!): User
 		me: User
 		events: [Event]
+		event(eventId: ID!): Event
 		categories: [Category]
 		products(category: ID, name: String): [Product]
 		product(_id: ID!): Product
@@ -97,6 +97,9 @@ const typeDefs = gql`
 			password: String
 		): User
 		updateProduct(_id: ID!, quantity: Int!): Product
+		addComment(eventId: ID!, commentText: String!): Event
+    	removeEvent(eventId: ID!): Event
+    	removeComment(eventId: ID!, commentId: ID!): Event
 	}
 `;
 

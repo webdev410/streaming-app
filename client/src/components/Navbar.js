@@ -17,7 +17,7 @@ const Navbar = () => {
 				{/* Menu Items that will show when a user is logged in */}
 				{Auth.loggedIn() ? (
 					<>
-						<Link to="/video" className="navLink">Event</Link>
+						{/* <Link to="/video" className="navLink">Event</Link> */}
 						{/*<Link to="/chat" className="navLink">Chat</Link>*/}
 						<Link to="/new-event" className="navLink">New Event</Link>
 						<Link to="/shop" className="navLink">Shop</Link>
