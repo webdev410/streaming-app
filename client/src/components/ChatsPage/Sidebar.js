@@ -44,7 +44,7 @@ export class Sidebar extends Component {
           onClick={(user === 'You...') ? null : () => setActivePChannel(user)}
           active={this.props.activeChannel.name === user}
         >
-          # {user[0].toUpperCase() + user.slice(1)}
+          # {user}
           <Loader
             style={{ marginLeft: '10px' }}
             size={4} color='grey' distance={3}
@@ -91,7 +91,7 @@ export class Sidebar extends Component {
     return (
       <React.Fragment>
         <Menu
-          style={{ background: '#4c3c4c', paddingTop: '2em' }}
+          style={{ background: '#4183c4' }}
           vertical
           inverted
           fluid
@@ -101,12 +101,12 @@ export class Sidebar extends Component {
 
           <Header inverted as='h3'>
             <Icon name='chat' />
-            <Header.Content> Simple Chat </Header.Content>
+            {/*<Header.Content> Simple Chat </Header.Content>*/}
             <Header.Subheader>
-              Login as : {user.nickname[0].toUpperCase() + user.nickname.slice(1)}
+              Logged in as:<br />{user.nickname}
             </Header.Subheader>
           </Header>
-          <Menu.Menu>
+          {/*<Menu.Menu>
             <Menu.Item style={{ paddingLeft: '0' }}>
               <span style={{ fontSize: '1.2em' }}>
                 <Icon name='bullhorn' /> Channel lists
@@ -115,11 +115,11 @@ export class Sidebar extends Component {
             </Menu.Item>
             {chats[0] && this.displayChannels(chats)}
           </Menu.Menu>
-          <br />
+          <br />*/}
           <Menu.Menu>
-            <Menu.Item style={{ paddingLeft: '0' }}>
+            <Menu.Item style={{ paddingLeft: '0', paddingRight: '0' }}>
               <span style={{ fontSize: '1.2em' }}>
-                <Icon name='address book' /> Online Users
+                {/*<Icon name='address book' />*/} Online Users
               </span>
             </Menu.Item>
             {(users && chats[0]) && this.displayUsers(users)}

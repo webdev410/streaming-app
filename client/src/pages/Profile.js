@@ -20,7 +20,7 @@ const Profile = () => {
 	}
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return <div className="ui centered raised card">Loading...</div>;
 	}
 
 	if (!user?.username) {
