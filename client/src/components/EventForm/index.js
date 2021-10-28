@@ -3,7 +3,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { ADD_EVENT } from "../../utils/mutations";
 import { QUERY_EVENTS } from "../../utils/queries";
 import Auth from "../../utils/auth";
-import EventList from "./EventList";
+import EventList from "../EventList";
 
 export default function EventForm() {
 	const { loading, data } = useQuery(QUERY_EVENTS);
