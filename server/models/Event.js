@@ -55,10 +55,6 @@ const eventSchema = new Schema({
         minlength: 1,
         maxlength: 280,
       },
-      commentAuthor: {
-        type: String,
-        required: true,
-      },
       createdAt: {
         type: Date,
         default: Date.now,

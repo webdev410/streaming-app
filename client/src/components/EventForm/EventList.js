@@ -8,9 +8,8 @@ const EventList = ({ events }) => {
 			{events &&
 				events.map((event) => (
 					<div key={event._id} className="eventDiv">
-						<h2>{event.eventTitle}</h2>
+						<Link to={`/event/${event._id}`}><h2>{event.eventTitle}</h2></Link>
 						<p>{event.eventDescription}</p>
-						<Link to={event.eventLink}>{event.eventLink}</Link>
 					</div>
 				))}
 		</div>

@@ -1,9 +1,23 @@
 import React, { useState } from "react";
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_SINGLE_EVENT } from '../utils/queries';
+
 import ReactPlayer from "react-player";
 import Chat from "./Chat";
 import { Grid } from 'semantic-ui-react'
+import CommentForm from './CommentForm'
+import CommentList from './CommentList'
 
-export default function Video() {
+export default function Event() {
+  const { eventId } = useParams();
+  const { loading, data } = useQuery(QUERY_SINGLE_EVENT, {
+    // Pass the `thoughtId` URL parameter into query to retrieve this thought's data
+    variables: { eventId: eventId },
+  });
+  const event = data?.event || {};
+
+
   const [videoUrl, setVideoUrl] = useState("");
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
@@ -30,6 +44,10 @@ export default function Video() {
             />
           </form>
           <ReactPlayer url={videoUrl} />
+          <CommentForm
+          eventId={event._id} />
+          <CommentList
+          comments={event.comments} />
         </Grid.Column>
 				<Grid.Column computer={6} tablet={ 16 } mobile={16}>
         <div className="six wide column subSection">
