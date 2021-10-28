@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_EVENTS } from "../utils/queries";
-import EventList from "../components/EventForm/EventList";
+import EventList from "../components/EventList";
 import Search from "../components/Search";
 const Home = () => {
 	const { loading, data } = useQuery(QUERY_EVENTS);
