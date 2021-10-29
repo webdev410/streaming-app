@@ -34,7 +34,7 @@ const CommentForm = ({ eventId }) => {
 
   return (
     <div>
-      <h3>Comments</h3>
+      <h3 className="ui header">Comments</h3>
       <p
         className={`m-0 ${
           characterCount === 280 || error ? 'text-danger' : ''
@@ -44,10 +44,10 @@ const CommentForm = ({ eventId }) => {
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-center"
+        className="ui form"
         onSubmit={handleFormSubmit}
       >
-        <div className="">
+        <div className="field">
           <input
             name="commentText"
             placeholder="Add your comment..."
@@ -58,11 +58,9 @@ const CommentForm = ({ eventId }) => {
           ></input>
         </div>
 
-        <div className="col-12 col-lg-3">
-          <button className="btn btn-primary btn-block py-3" type="submit">
-            Add Comment
-          </button>
-        </div>
+        <button className="ui primary button" type="submit">
+          Add Comment
+        </button>
       </form>
     </div>
   );

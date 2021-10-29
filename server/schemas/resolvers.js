@@ -200,6 +200,20 @@ const resolvers = {
 				{ new: true }
 			);
 		},
+		addLike: async (parent, { eventId }, context) => {
+			if (context.user) {
+				console.log(context.user);
+				return Event.findOneAndUpdate(
+					{
+						_id: eventId,
+					},
+					{
+						$addToSet: { likes: context.user._id },
+					}
+				);
+			}
+			throw new AuthenticationError("You need to be logged in!");
+		},
 	},
 };
 module.exports = resolvers;

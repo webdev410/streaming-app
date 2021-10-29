@@ -84,8 +84,8 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+        <div className="ui rasied padded container segment">
+          <Link to="/shop">← Back to Products</Link>
 
           <h2>{currentProduct.name}</h2>
 
@@ -102,7 +102,7 @@ function Detail() {
             </button>
           </p>
 
-          <img
+          <img style={{ width: '300px' }}
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />

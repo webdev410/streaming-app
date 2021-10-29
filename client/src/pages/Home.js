@@ -4,6 +4,8 @@ import { QUERY_EVENTS } from "../utils/queries";
 import EventList from "../components/EventList";
 import Search from "../components/Search";
 const Home = () => {
+	// useEffect to run the query on the page load so data populates (useLazyQuery)
+
 	const { loading, data } = useQuery(QUERY_EVENTS);
 	const eventList = data?.events;
 	return (

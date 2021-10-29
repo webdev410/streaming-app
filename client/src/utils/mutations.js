@@ -86,3 +86,12 @@ export const ADD_COMMENT = gql`
 		}
 	}
 `;
+export const ADD_LIKE = gql`
+	mutation addLike($eventId: ID!) {
+		addLike(eventId: $eventId) {
+			likes {
+				username
+			}
+		}
+	}
+`;

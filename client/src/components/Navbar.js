@@ -10,7 +10,7 @@ const Navbar = () => {
 	};
 	return (
 		<div className="logo ui container">
-			<img className="ui bottom aligned small image" src={logo} alt="T.E.A.M. STEAM logo" />
+			<a href="/"><img className="ui bottom aligned small image" src={logo} alt="T.E.A.M. STEAM logo" /></a>
 				{/* Menu Items that will show all the time */}
 				<Link to="/" className="navLink">Home</Link>
 

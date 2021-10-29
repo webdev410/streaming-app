@@ -40,9 +40,9 @@ function ProductItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
+    <div className="ui card">
       <Link to={`/products/${_id}`}>
-        <img
+        <img style={{ width: '100%' }}
           alt={name}
           src={`/images/${image}`}
         />
