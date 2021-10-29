@@ -88,6 +88,7 @@ const typeDefs = gql`
 			eventTitle: String!
 			eventDescription: String!
 			eventLink: String
+			isPremiumContent: Boolean!
 		): Event
 		addOrder(products: [ID]!): Order
 		updateUser(
@@ -98,8 +99,8 @@ const typeDefs = gql`
 		): User
 		updateProduct(_id: ID!, quantity: Int!): Product
 		addComment(eventId: ID!, commentText: String!): Event
-    	removeEvent(eventId: ID!): Event
-    	removeComment(eventId: ID!, commentId: ID!): Event
+		removeEvent(eventId: ID!): Event
+		removeComment(eventId: ID!, commentId: ID!): Event
 	}
 `;
 
