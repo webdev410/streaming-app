@@ -1,18 +1,22 @@
 import React, { useState } from "react";
+import { Radio } from "semantic-ui-react";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_EVENT } from "../../utils/mutations";
 import { QUERY_EVENTS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import EventList from "../EventList";
-
+import RadioToggle from "../RadioToggle";
 export default function EventForm() {
 	const { loading, data } = useQuery(QUERY_EVENTS);
 	const eventList = data?.events;
+
+	const [toggleValue, setToggleValue] = useState(false);
 
 	const [formState, setFormState] = useState({
 		eventTitle: "",
 		eventDescription: "",
 		eventLink: "",
+		isPremiumContent: toggleValue,
 	});
 	const [characterCount, setCharacterCount] = useState(0);
 
@@ -30,6 +34,12 @@ export default function EventForm() {
 		},
 	});
 
+	const handleToggle = (event) => {
+		event.preventDefault();
+		setToggleValue(!toggleValue);
+		setFormState({ ...formState, isPremiumContent: toggleValue });
+	};
+
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 		try {
@@ -37,6 +47,7 @@ export default function EventForm() {
 				variables: {
 					...formState,
 					user: Auth.getProfile().data._id,
+					isPremiumContent: toggleValue,
 				},
 			});
 			window.location.reload();
@@ -104,6 +115,19 @@ export default function EventForm() {
 							onChange={handleChange}
 							placeholder="Event Link"
 						/>
+					</div>
+					<div>
+						{/* <RadioToggle /> */}
+						<div>
+							<h5>Premium Event?</h5>
+
+							<Radio
+								toggle
+								name="isPremiumContent"
+								value={toggleValue}
+								onChange={handleToggle}
+							/>
+						</div>
 					</div>
 					<button className="ui primary button" type="submit">
 						Submit

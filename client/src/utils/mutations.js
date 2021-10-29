@@ -39,16 +39,19 @@ export const ADD_EVENT = gql`
 		$eventTitle: String!
 		$eventDescription: String!
 		$eventLink: String
+		$isPremiumContent: Boolean!
 	) {
 		addEvent(
 			eventTitle: $eventTitle
 			eventDescription: $eventDescription
 			eventLink: $eventLink
+			isPremiumContent: $isPremiumContent
 		) {
 			_id
 			eventTitle
 			eventDescription
 			eventLink
+			isPremiumContent
 		}
 	}
 `;
@@ -72,14 +75,14 @@ export const ADD_ORDER = gql`
 `;
 
 export const ADD_COMMENT = gql`
-mutation addComment($eventId: ID!, $commentText: String!) {
-    addComment(eventId: $eventId, commentText: $commentText) {
-      _id
-      comments {
-        _id
-        commentText
-        createdAt
-      }
-    }
-  }
+	mutation addComment($eventId: ID!, $commentText: String!) {
+		addComment(eventId: $eventId, commentText: $commentText) {
+			_id
+			comments {
+				_id
+				commentText
+				createdAt
+			}
+		}
+	}
 `;
