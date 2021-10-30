@@ -30,7 +30,7 @@ export default function Event() {
 		<div className="ui raised padded container segment">
 			<Grid>
 				<Grid.Column computer={10} tablet={16} mobile={16}>
-					<h2 className="ui header">Video Component</h2>
+					<h2 className="ui header">Event Title</h2>
 
 					<form className="ui form" action="#">
 						<input
@@ -44,8 +44,9 @@ export default function Event() {
 					</form>
 					<ReactPlayer url={videoUrl} />
 					<LikeButton
+						key={event._id}
 						eventId={event._id}
-						likes={event.likes.length}
+						// likes={event.likes.length}
 					/>
 					<CommentForm eventId={event._id} />
 					<CommentList comments={event.comments} />

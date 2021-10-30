@@ -69,7 +69,7 @@ export default function EventForm() {
 
 	return (
 		<div className="ui raised padded container segment">
-			<h2 className="ui header">Event Form</h2>
+			<h2 className="ui header">Create a New Event</h2>
 			<div>
 				<p
 					className={`m-0 ${
