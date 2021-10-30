@@ -12,6 +12,7 @@ const EventList = ({ events }) => {
 						<PremiumBadge
 							isPremiumContent={event.isPremiumContent}
 						/>
+						<h4 className="muted-text">{event.eventDate}</h4>
 						<Link to={`/event/${event._id}`}>
 							<h2>{event.eventTitle}</h2>
 						</Link>
