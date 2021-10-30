@@ -22,10 +22,6 @@ export default function Event() {
 	console.log("THIS EVENT!!!!!!", event);
 	console.log("LIKES!!!!!!", event.likes);
 
-	useEffect(() => {
-		// here;
-	}, []);
-
 	return (
 		<div className="ui raised padded container segment">
 			<Grid>

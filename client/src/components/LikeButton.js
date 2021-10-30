@@ -10,16 +10,18 @@ import Loader from "./Loader";
 export default function LikeButton({ likes }) {
 	const [like, { error, data }] = useMutation(ADD_LIKE);
 	const { eventId } = useParams();
+	const [likeCount, updateLikeCount] = useState(likes);
 
 	const addLike = async (eventId) => {
+		// logic for if user has already liked it
 		try {
 			const { data } = await like({
 				variables: { eventId },
 			});
+			updateLikeCount(likeCount + 1);
 		} catch (e) {
 			console.error(e);
 		}
-		alert("you have liked this event");
 	};
 	// to get the like count
 	const { loading, data1 } = useQuery(QUERY_SINGLE_EVENT, {
@@ -33,11 +35,12 @@ export default function LikeButton({ likes }) {
 	return (
 		<div>
 			<button
-				onClick={() => {
+				onClick={(event) => {
+					event.preventDefault();
 					addLike(eventId);
 				}}
 			>
-				Like {likes}
+				Like {likeCount}
 			</button>
 		</div>
 	);
