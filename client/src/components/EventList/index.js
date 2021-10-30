@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PremiumBadge from "../PremiumBadge";
 const EventList = ({ events }) => {
 	console.log(events);
 
@@ -8,7 +9,12 @@ const EventList = ({ events }) => {
 			{events &&
 				events.map((event) => (
 					<div key={event._id} className="eventDiv">
-						<Link to={`/event/${event._id}`}><h2>{event.eventTitle}</h2></Link>
+						<PremiumBadge
+							isPremiumContent={event.isPremiumContent}
+						/>
+						<Link to={`/event/${event._id}`}>
+							<h2>{event.eventTitle}</h2>
+						</Link>
 						<p>{event.eventDescription}</p>
 					</div>
 				))}
