@@ -68,9 +68,7 @@ export const QUERY_EVENTS = gql`
 			createdAt
 			isPublished
 			isPremiumContent
-			category {
-				name
-			}
+			category
 			likes {
 				_id
 			}
@@ -98,9 +96,7 @@ export const QUERY_SINGLE_EVENT = gql`
 			eventLink
 			createdAt
 			isPremiumContent
-			category {
-				name
-			}
+			category
 			likes {
 				_id
 			}

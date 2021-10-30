@@ -12,11 +12,13 @@ export default function EventForm() {
 	const eventList = data?.events;
 
 	const [toggleValue, setToggleValue] = useState(false);
+	const [categoryValue, setCategoryValue] = useState("");
 	const [formState, setFormState] = useState({
 		eventTitle: "",
 		eventDescription: "",
 		eventLink: "",
 		isPremiumContent: toggleValue,
+		category: categoryValue,
 	});
 	const [characterCount, setCharacterCount] = useState(0);
 

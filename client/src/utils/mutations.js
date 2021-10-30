@@ -40,11 +40,13 @@ export const ADD_EVENT = gql`
 		$eventDescription: String!
 		$eventLink: String
 		$isPremiumContent: Boolean!
+		$category: String
 	) {
 		addEvent(
 			eventTitle: $eventTitle
 			eventDescription: $eventDescription
 			eventLink: $eventLink
+			category: $category
 			isPremiumContent: $isPremiumContent
 		) {
 			_id
@@ -52,6 +54,7 @@ export const ADD_EVENT = gql`
 			eventDescription
 			eventLink
 			isPremiumContent
+			category
 		}
 	}
 `;

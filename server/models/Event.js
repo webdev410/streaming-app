@@ -36,8 +36,8 @@ const eventSchema = new Schema({
 		ref: "User",
 	},
 	category: {
-		type: Schema.Types.ObjectId,
-		ref: "Category",
+		type: String,
+		default: "Uncategorized",
 	},
 	likes: [
 		{
