@@ -41,7 +41,7 @@ const CommentForm = ({ eventId }) => {
 
 	return (
 		<div>
-			<h4>What are your thoughts on this thought?</h4>
+			<h4>Add a comment</h4>
 
 			{Auth.loggedIn() ? (
 				<>
