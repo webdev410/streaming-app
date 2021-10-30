@@ -39,9 +39,12 @@ export const QUERY_EVENTS = gql`
 			createdAt
 			isPublished
 			isPremiumContent
+
 			likes {
 				_id
 			}
+
+
 			comments {
 				commentText
 			}
@@ -63,10 +66,15 @@ export const QUERY_SINGLE_EVENT = gql`
 			eventDescription
 			eventDate
 			createdAt
+
 			isPremiumContent
 			likes {
 				_id
 			}
+
+			isPublished
+			isPremiumContent
+
 			comments {
 				_id
 				commentText

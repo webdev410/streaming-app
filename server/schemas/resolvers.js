@@ -208,6 +208,7 @@ const resolvers = {
 				{ new: true }
 			);
 		},
+
 		addLike: async (parent, { eventId }, context) => {
 			if (context.user) {
 				console.log(context.user);
@@ -222,6 +223,8 @@ const resolvers = {
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
+
+
 	},
 };
 module.exports = resolvers;
