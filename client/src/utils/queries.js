@@ -70,6 +70,7 @@ export const QUERY_SINGLE_EVENT = gql`
 			comments {
 				_id
 				commentText
+				commentAuthor
 				createdAt
 			}
 		}

@@ -178,17 +178,25 @@ const resolvers = {
 				{ new: true }
 			);
 		},
-		addComment: async (parent, { eventId, commentText }) => {
-			return Event.findOneAndUpdate(
-				{ _id: eventId },
-				{
-					$addToSet: { comments: { commentText } },
-				},
-				{
-					new: true,
-					runValidators: true,
-				}
-			);
+		addComment: async (parent, { eventId, commentText }, context) => {
+			if (context.user) {
+				return Event.findOneAndUpdate(
+					{ _id: eventId },
+					{
+						$addToSet: {
+							comments: {
+								commentText,
+								commentAuthor: context.user.username,
+							},
+						},
+					},
+					{
+						new: true,
+						runValidators: true,
+					}
+				);
+			}
+			throw new AuthenticationError("You need to be logged in!");
 		},
 		removeEvent: async (parent, { eventId }) => {
 			return Event.findOneAndDelete({ _id: eventId });
