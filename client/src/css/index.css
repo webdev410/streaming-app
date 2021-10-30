@@ -57,6 +57,11 @@ footer {
     display: none;
 }
 
+.muted-text {
+    margin: 10px 0px 5px 0px;
+    color: #333;
+}
+
 @media screen and (max-width: 620px) {
     .navLink {
         display: block;
