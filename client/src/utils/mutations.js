@@ -85,6 +85,7 @@ export const ADD_COMMENT = gql`
 			}
 		}
 	}
+
 `;
 export const ADD_LIKE = gql`
 	mutation addLike($eventId: ID!) {
@@ -94,4 +95,6 @@ export const ADD_LIKE = gql`
 			}
 		}
 	}
+
+
 `;

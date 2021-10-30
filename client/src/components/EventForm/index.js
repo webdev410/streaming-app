@@ -5,7 +5,7 @@ import { ADD_EVENT } from "../../utils/mutations";
 import { QUERY_EVENTS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import EventList from "../EventList";
-
+import RadioToggle from "../RadioToggle";
 export default function EventForm() {
 	const { loading, data } = useQuery(QUERY_EVENTS);
 	const eventList = data?.events;
@@ -117,6 +117,7 @@ export default function EventForm() {
 						/>
 					</div>
 					<div>
+
 						<div>
 							<h5>Premium Event?</h5>
 
