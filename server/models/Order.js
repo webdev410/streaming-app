@@ -7,6 +7,7 @@ const orderSchema = new Schema({
 	purchaseDate: {
 		type: Date,
 		default: Date.now,
+		get: (timestamp) => dateFormat(timestamp),
 	},
 	products: [
 		{
