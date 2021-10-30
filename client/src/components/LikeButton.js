@@ -35,15 +35,22 @@ export default function LikeButton({ likes }) {
 		return <Loader />;
 	}
 	return (
-		<div>
-			<button
+		<div style={{ marginBottom: "20px" }}>
+			<Button
+				as="div"
+				labelPosition="right"
 				onClick={(event) => {
 					event.preventDefault();
 					addLike(eventId);
 				}}
 			>
-				Like {likeCount}
-			</button>
+			      <Button icon>
+        <Icon name="thumbs up outline" />
+      </Button>
+      <Label as="span" basic pointing="left">
+				{likeCount}
+			</Label>
+    </Button>
 		</div>
 	);
 
