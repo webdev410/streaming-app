@@ -34,16 +34,15 @@ export class LoginPage extends Component {
   render() {
     return (
       <Grid
-        style={{ padding: '0px', margin: '0px' }}
+        style={{  }}
         textAlign='center'
         verticalAlign='middle'
       >
         <Grid.Column computer={ 16 } tablet={ 16 } mobile={ 16 } >
-          <Header as='h2' icon textAlign='center' color='blue'>
-            <Icon name='discussions' />
-            Simple Chats.
+          <Header as='h2' textAlign='center'>
+            Event Chat
           </Header>
-          <Form size='small' onSubmit={this.handleSubmit}>
+          <Form className="ui form" size='small' onSubmit={this.handleSubmit}>
             <Form.Input 
               name='nickname'
               type='text'
