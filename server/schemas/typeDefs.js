@@ -101,6 +101,10 @@ const typeDefs = gql`
 		addComment(eventId: ID!, commentText: String!): Event
 		removeEvent(eventId: ID!): Event
 		removeComment(eventId: ID!, commentId: ID!): Event
+
+		addLike(eventId: ID!): Event
+
+
 	}
 `;
 
