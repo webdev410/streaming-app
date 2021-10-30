@@ -7,6 +7,7 @@ export const QUERY_USER = gql`
 			name
 			username
 			email
+			isPremium
 		}
 	}
 `;
@@ -18,6 +19,7 @@ export const QUERY_ME = gql`
 			name
 			username
 			email
+			isPremium
 			events {
 				_id
 				eventTitle
@@ -39,7 +41,6 @@ export const QUERY_EVENTS = gql`
 			createdAt
 			isPublished
 			isPremiumContent
-
 			likes {
 				_id
 			}
