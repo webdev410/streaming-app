@@ -31,16 +31,35 @@ const Profile = () => {
 			</h4>
 		);
 	}
-
+	const ordersArray = user.orders;
+	console.log("ordersArray", ordersArray);
 	return (
 		<div className="ui raised padded container segment">
 			<h2 className="ui header">
 				{userParam ? `${user.username}'s` : "Your"} Profile
 			</h2>
-			<p>{user.name}</p>
-			<p>{user.username}</p>
-			<p>{user.email}</p>
+			<p>Name: {user.name}</p>
+			<p>Username: {user.username}</p>
+			<p>Email: {user.email}</p>
+			<p>User ID: {user._id}</p>
+			<h3>Orders</h3>
+			{user.orders.map((order) => (
+				<div className="orderDiv" key={order._id}>
+					<p>Order Number: {order._id}</p>
+					<p>Purchased On: {order.purchaseDate}</p>
+					{order.products.map((product) => (
+						<div key={product._id}>
+							<p>Product Name: {product.name}</p>
+							<p>Description: {product.description}</p>
+							<p>price: {product.price}</p>
+							<p>quantity: {product.quantity}</p>
+						</div>
+					))}
+				</div>
+			))}
+
 			{/* for each post by this user, show details */}
+			<a href="/orders">View Order History</a>
 		</div>
 	);
 };

@@ -98,7 +98,13 @@ const resolvers = {
 
 		me: async (parent, args, context) => {
 			if (context.user) {
-				return await User.findOne({ _id: context.user._id });
+				return await User.findOne({ _id: context.user._id })
+					.populate("events")
+					.populate({
+						path: "orders.products",
+						populate: "category",
+					});
+					
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
@@ -124,6 +130,7 @@ const resolvers = {
 				throw new ValidationError("Session IDs do not match.");
 			}
 		},
+
 		addEvent: async (
 			parent,
 			{ eventTitle, eventDescription, eventLink, isPremiumContent },

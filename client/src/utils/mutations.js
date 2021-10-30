@@ -87,7 +87,6 @@ export const ADD_COMMENT = gql`
 			}
 		}
 	}
-
 `;
 export const ADD_LIKE = gql`
 	mutation addLike($eventId: ID!) {
@@ -97,6 +96,16 @@ export const ADD_LIKE = gql`
 			}
 		}
 	}
+`;
 
-
+export const UPGRADE_USER = gql`
+	mutation upgrade($userId: ID!) {
+		upgrade(userId: $userId) {
+			user {
+				_id
+				username
+				isPremium
+			}
+		}
+	}
 `;
