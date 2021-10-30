@@ -49,6 +49,9 @@ export const QUERY_ME = gql`
 				eventTitle
 				eventDescription
 				isPremiumContent
+				category {
+					name
+				}
 			}
 		}
 	}
@@ -65,6 +68,9 @@ export const QUERY_EVENTS = gql`
 			createdAt
 			isPublished
 			isPremiumContent
+			category {
+				name
+			}
 			likes {
 				_id
 			}
@@ -92,6 +98,9 @@ export const QUERY_SINGLE_EVENT = gql`
 			eventLink
 			createdAt
 			isPremiumContent
+			category {
+				name
+			}
 			likes {
 				_id
 			}
@@ -114,9 +123,6 @@ export const QUERY_PRODUCTS = gql`
 			price
 			quantity
 			image
-			category {
-				_id
-			}
 		}
 	}
 `;
@@ -137,15 +143,12 @@ export const QUERY_ALL_PRODUCTS = gql`
 			description
 			price
 			quantity
-			category {
-				name
-			}
 		}
 	}
 `;
 
 export const QUERY_CATEGORIES = gql`
-	{
+	query categories {
 		categories {
 			_id
 			name

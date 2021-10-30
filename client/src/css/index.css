@@ -11,6 +11,11 @@ body {
     margin: 10px;
     font-size: 15px;
     font-weight: 700;
+    color: white;
+}
+
+.navLink:hover {
+    color: rgba(255, 255, 255, 0.562);
 }
 
 .eventDiv {

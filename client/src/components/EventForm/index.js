@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { Radio } from "semantic-ui-react";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_EVENT } from "../../utils/mutations";
-import { QUERY_EVENTS } from "../../utils/queries";
+import { QUERY_EVENTS, QUERY_CATEGORIES } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import EventList from "../EventList";
+import CategorySelect from "./CategorySelect";
 import RadioToggle from "../RadioToggle";
 export default function EventForm() {
 	const { loading, data } = useQuery(QUERY_EVENTS);
 	const eventList = data?.events;
 
 	const [toggleValue, setToggleValue] = useState(false);
-
 	const [formState, setFormState] = useState({
 		eventTitle: "",
 		eventDescription: "",
@@ -39,7 +39,6 @@ export default function EventForm() {
 		setToggleValue(!toggleValue);
 		setFormState({ ...formState, isPremiumContent: toggleValue });
 	};
-
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 		try {
@@ -116,8 +115,10 @@ export default function EventForm() {
 							placeholder="Event Link"
 						/>
 					</div>
+					<div className="field">
+						<CategorySelect></CategorySelect>
+					</div>
 					<div>
-
 						<div>
 							<h5>Premium Event?</h5>
 
