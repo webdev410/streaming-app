@@ -31,7 +31,7 @@ export default function Event() {
 					<p>{event.eventDescription}</p>
 					<p>Event Start Date: {event.eventDate}</p>
 					{/* if user is premium and event is premiumContent show video, otherwise show error */}
-					<ReactPlayer url={event.eventLink} playing="true" />
+					<ReactPlayer url={event.eventLink} playing={true} />
 					<LikeButton
 						key={event._id}
 						eventId={event._id}
