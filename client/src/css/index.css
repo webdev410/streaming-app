@@ -32,10 +32,13 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
+    background-color: #fff;
+    border-top: 1px solid #4183c4;
 }
 
 .bigLetter {
     font-size: 150%;
+    color: green;
 }
 
 @media screen and (max-width: 620px) {
