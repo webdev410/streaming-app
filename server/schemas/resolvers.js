@@ -1,4 +1,7 @@
-const { AuthenticationError } = require("apollo-server-express");
+const {
+	AuthenticationError,
+	ValidationError,
+} = require("apollo-server-express");
 const { User, Event, Category, Product, Order } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
@@ -39,6 +42,9 @@ const resolvers = {
 			throw new AuthenticationError("Not logged in");
 		},
 		checkout: async (parent, args, context) => {
+			if (!context.user) {
+				throw new AuthenticationError("Not logged in");
+			}
 			const url = new URL(context.headers.referer).origin;
 			const order = new Order({ products: args.products });
 			const line_items = [];
@@ -73,14 +79,18 @@ const resolvers = {
 				success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
 				cancel_url: `${url}/`,
 			});
+			// storing the strip session ID to the user on the server
+			context.user.pendingCheckout = session.id;
 
 			return { session: session.id };
 		},
 		user: async (parent, { username }) => {
-			return User.findOne({ username }).populate("events").populate({
-				path: "orders.products",
-				populate: "category",
-			});
+			const user = User.findOne({ username })
+				.populate("events")
+				.populate({
+					path: "orders.products",
+					populate: "category",
+				});
 			user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
 			return user;
@@ -101,6 +111,19 @@ const resolvers = {
 	},
 
 	Mutation: {
+		upgrade: async (parent, args, context) => {
+			// if session id = pending checkout
+			if (context.user.pendingCheckout === args.session_id) {
+				await User.findOneAndUpdate(
+					{ _id: context.user._id },
+					{ isPremium: true }
+				);
+				context.user.isPremium = true;
+				delete context.user.pendingCheckout;
+			} else {
+				throw new ValidationError("Session IDs do not match.");
+			}
+		},
 		addEvent: async (
 			parent,
 			{ eventTitle, eventDescription, eventLink, isPremiumContent },
@@ -223,8 +246,6 @@ const resolvers = {
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
-
-
 	},
 };
 module.exports = resolvers;

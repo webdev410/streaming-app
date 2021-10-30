@@ -9,6 +9,7 @@ import { Grid } from "semantic-ui-react";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import LikeButton from "./LikeButton";
+import PremiumBadge from "./PremiumBadge";
 
 export default function Event() {
 	const { eventId } = useParams();
@@ -21,34 +22,20 @@ export default function Event() {
 	console.log("THIS EVENT!!!!!!", event);
 	console.log("LIKES!!!!!!", event.likes);
 
-	useEffect(() => {
-		// here;
-	}, []);
-
 	return (
 		<div className="ui raised padded container segment">
 			<Grid>
 				<Grid.Column computer={10} tablet={16} mobile={16}>
+					<PremiumBadge isPremiumContent={event.isPremiumContent} />
 					<h2 className="ui header">{event.eventTitle}</h2>
 					<p>{event.eventDescription}</p>
 					<p>Event Start Date: {event.eventDate}</p>
-
-					{/* <form className="ui form" action="#">
-						<input
-							className="field"
-							value={videoUrl}
-							type="text"
-							name="videoUrl"
-							onChange={handleInputChange}
-							placeholder="Video Link"
-						/>
-					</form> */}
 					{/* if user is premium and event is premiumContent show video, otherwise show error */}
 					<ReactPlayer url={event.eventLink} playing="true" />
 					<LikeButton
 						key={event._id}
 						eventId={event._id}
-						// likes={event.likes.length}
+						likes={event.likes?.length}
 					/>
 					<CommentForm eventId={event._id} />
 					<CommentList comments={event.comments} />

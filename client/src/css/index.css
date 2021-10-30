@@ -1,8 +1,7 @@
 /* Background image courtesy of https://pngtree.com/free-backgrounds, free background photos from pngtree.com */
 
-
 body {
-    margin:10px;
+    margin: 10px;
     background-image: url("../assets/—Pngtree—elegant abstract smooth swoosh speed_1179370.jpg");
     background-size: cover;
     height: calc(100vh - 10px);
@@ -44,6 +43,7 @@ footer {
 .userCommentRow {
     padding: 10px;
 }
+
 .userCommentRow:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -51,6 +51,10 @@ footer {
 .userComment {
     font-weight: 600;
     font-size: 110%;
+}
+
+.hide {
+    display: none;
 }
 
 @media screen and (max-width: 620px) {
