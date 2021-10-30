@@ -25,6 +25,7 @@ const CommentForm = ({ eventId }) => {
 			});
 
 			setCommentText("");
+			setCharacterCount(0);
 		} catch (err) {
 			console.error(err);
 		}
@@ -41,7 +42,7 @@ const CommentForm = ({ eventId }) => {
 
 	return (
 		<div>
-			<h4>Add a comment</h4>
+			<h4 className="ui header">Add a comment</h4>
 
 			{Auth.loggedIn() ? (
 				<>
