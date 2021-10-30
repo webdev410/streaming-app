@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_EVENT } from "../utils/queries";
@@ -17,22 +17,23 @@ export default function Event() {
 		variables: { eventId: eventId },
 	});
 	const event = data?.event || {};
-	const [videoUrl, setVideoUrl] = useState("");
-	const handleInputChange = (e) => {
-		// Getting the value and name of the input which triggered the change
-		const { target } = e;
 
-		const inputValue = target.value;
-		setVideoUrl(inputValue);
-	};
+	console.log("THIS EVENT!!!!!!", event);
+	console.log("LIKES!!!!!!", event.likes);
+
+	useEffect(() => {
+		// here;
+	}, []);
 
 	return (
 		<div className="ui raised padded container segment">
 			<Grid>
 				<Grid.Column computer={10} tablet={16} mobile={16}>
-					<h2 className="ui header">Event Title</h2>
+					<h2 className="ui header">{event.eventTitle}</h2>
+					<p>{event.eventDescription}</p>
+					<p>Event Start Date: {event.eventDate}</p>
 
-					<form className="ui form" action="#">
+					{/* <form className="ui form" action="#">
 						<input
 							className="field"
 							value={videoUrl}
@@ -41,8 +42,9 @@ export default function Event() {
 							onChange={handleInputChange}
 							placeholder="Video Link"
 						/>
-					</form>
-					<ReactPlayer url={videoUrl} />
+					</form> */}
+					{/* if user is premium and event is premiumContent show video, otherwise show error */}
+					<ReactPlayer url={event.eventLink} playing="true" />
 					<LikeButton
 						key={event._id}
 						eventId={event._id}
