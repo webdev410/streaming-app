@@ -83,6 +83,7 @@ function App() {
 						component={OrderHistory}
 					/>
 					<Route exact path="/products/:id" component={Detail} />
+					<Route exact path="/orders" component={OrderHistory} />
 				</StoreProvider>
 			</Router>
 			<Footer />

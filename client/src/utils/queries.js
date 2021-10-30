@@ -8,6 +8,18 @@ export const QUERY_USER = gql`
 			username
 			email
 			isPremium
+			orders {
+				_id
+				purchaseDate
+				products {
+					_id
+					name
+					description
+					price
+					quantity
+					image
+				}
+			}
 		}
 	}
 `;
@@ -20,6 +32,18 @@ export const QUERY_ME = gql`
 			username
 			email
 			isPremium
+			orders {
+				_id
+				purchaseDate
+				products {
+					_id
+					name
+					description
+					price
+					quantity
+					image
+				}
+			}
 			events {
 				_id
 				eventTitle
