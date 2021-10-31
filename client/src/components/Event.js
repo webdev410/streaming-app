@@ -37,8 +37,12 @@ export default function Event() {
 					</p>
 					<span>Event Description</span>
 					<p>{event.eventDescription}</p>
-					{/* if user is premium and event is premiumContent show video, otherwise show error */}
-					<ReactPlayer url={event.eventLink} playing={true} />
+					<ReactPlayer
+						url={event.eventLink}
+						playing={true}
+						controls={true}
+						width={"100%"}
+					/>
 					<LikeButton
 						key={event._id}
 						eventId={event._id}
