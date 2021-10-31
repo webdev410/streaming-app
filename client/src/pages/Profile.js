@@ -58,8 +58,7 @@ const Profile = () => {
 				</div>
 			))}
 
-			{/* for each post by this user, show details */}
-			<a href="/orders">View Order History</a>
+			
 		</div>
 	);
 };
