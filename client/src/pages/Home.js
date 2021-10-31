@@ -15,10 +15,9 @@ const Home = () => {
 			<div>
 				<h2 className="ui header">All Events</h2>
 			</div>
+
 			<div>
-				<CategoryMenu />
-			</div>
-			<div>
+				<h2>Events</h2>
 				<EventList events={eventList} />
 			</div>
 		</main>

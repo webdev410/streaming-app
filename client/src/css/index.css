@@ -63,7 +63,16 @@ footer {
 }
 
 .hide {
-    display: none;
+    display: none !important;
+}
+
+.disabledEvent {
+    background-image: url('/src/assets/premium-members-only.png');
+    background-size: 120px;
+}
+
+.conditionalLink {
+    font-size: 50px !important;
 }
 
 .muted-text {

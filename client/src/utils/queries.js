@@ -49,9 +49,7 @@ export const QUERY_ME = gql`
 				eventTitle
 				eventDescription
 				isPremiumContent
-				category {
-					name
-				}
+				category
 			}
 		}
 	}
