@@ -72,13 +72,13 @@ export default function EventForm() {
 			<h2 className="ui header">Create a New Event</h2>
 			<div>
 				<p
-					className={`m-0 ${
-						characterCount === 120 || error ? "text-danger" : ""
+					className={`${
+						characterCount === 120 || error ? "danger" : ""
 					}`}
 				>
 					Character Count: {characterCount}/120
 					{error && (
-						<span className="ml-2">Something went wrong...</span>
+						<span className="ui error message">Something went wrong...</span>
 					)}
 				</p>
 
@@ -133,7 +133,7 @@ export default function EventForm() {
 						Submit
 					</button>
 					<pre>{JSON.stringify(error, null, 2)}</pre>
-					{error && <div className="">Something went wrong...</div>}
+					{error && <div className="ui error message">Something went wrong...</div>}
 				</form>
 
 				<div>

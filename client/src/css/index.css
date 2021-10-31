@@ -13,6 +13,10 @@ body {
     font-weight: 700;
 }
 
+.active {
+    color: #0ed145;
+}
+
 .eventDiv {
     border: 1px black solid;
     margin: 10px;
@@ -37,7 +41,7 @@ footer {
 
 .bigLetter {
     font-size: 150%;
-    color: green;
+    color: #0ed145;
 }
 
 .userCommentRow {
@@ -64,6 +68,11 @@ footer {
 
 .orderDiv {
     border: 1px solid black;
+}
+
+.danger {
+    color: #dd0000;
+    font-weight: 600;
 }
 
 @media screen and (max-width: 620px) {

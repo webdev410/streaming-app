@@ -47,12 +47,12 @@ const CommentForm = ({ eventId }) => {
 			{Auth.loggedIn() ? (
 				<>
 					<p
-						className={`m-0 ${
-							characterCount === 280 || error ? "text-danger" : ""
+						className={`${
+							characterCount === 280 || error ? "danger" : ""
 						}`}
 					>
 						Character Count: {characterCount}/280
-						{error && <span className="ml-2">{error.message}</span>}
+						{error && <span className="ui error message">{error.message}</span>}
 					</p>
 					<form className="ui form" onSubmit={handleFormSubmit}>
 						<div className="field">
@@ -69,7 +69,7 @@ const CommentForm = ({ eventId }) => {
 							></input>
 						</div>
 
-						<div className="col-12 col-lg-3">
+						<div>
 							<button className="ui primary button" type="submit">
 								Add Comment
 							</button>
