@@ -11,6 +11,11 @@ body {
     margin: 10px;
     font-size: 15px;
     font-weight: 700;
+    color: white;
+}
+
+.navLink:hover {
+    color: rgba(255, 255, 255, 0.562);
 }
 
 .active {
@@ -64,6 +69,11 @@ footer {
 .muted-text {
     margin: 10px 0px 5px 0px;
     color: #333;
+}
+
+span {
+    font-weight: bold;
+    margin-right: 5px;
 }
 
 .orderDiv {

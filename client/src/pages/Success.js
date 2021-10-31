@@ -35,7 +35,7 @@ function Success() {
 	}, [addOrder]);
 
 	return (
-		<div>
+		<div className="ui raised padded container segment">
 			<Jumbotron>
 				<h1 className="ui header">Success!</h1>
 				<h2 className="ui header">Thank you for your purchase!</h2>

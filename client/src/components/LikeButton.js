@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_EVENT } from "../utils/queries";
 import { Button, Icon, Label } from "semantic-ui-react";
 
@@ -9,7 +9,6 @@ import Loader from "./Loader";
 // import { QUERY_SINGLE_EVENT } from "../utils/queries";
 
 export default function LikeButton({ likes }) {
-
 	const [like, { error, data }] = useMutation(ADD_LIKE);
 	const { eventId } = useParams();
 	const [likeCount, updateLikeCount] = useState(likes);
@@ -44,14 +43,13 @@ export default function LikeButton({ likes }) {
 					addLike(eventId);
 				}}
 			>
-			      <Button icon>
-        <Icon name="thumbs up outline" />
-      </Button>
-      <Label as="span" basic pointing="left">
-				{likeCount}
-			</Label>
-    </Button>
+				<Button icon>
+					<Icon name="thumbs up outline" />
+				</Button>
+				<Label as="span" basic pointing="left">
+					{likeCount}
+				</Label>
+			</Button>
 		</div>
 	);
-
 }

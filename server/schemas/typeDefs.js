@@ -23,7 +23,7 @@ const typeDefs = gql`
 		eventDate: String
 		createdAt: String
 		user: User
-		category: Category
+		category: String
 		likes: [User]
 		comments: [Comment]
 	}
@@ -35,7 +35,7 @@ const typeDefs = gql`
 		image: String
 		quantity: Int
 		price: Float
-		category: Category
+		# category: Category
 	}
 
 	type Order {
@@ -89,7 +89,9 @@ const typeDefs = gql`
 			eventTitle: String!
 			eventDescription: String!
 			eventLink: String
+			eventDate: String
 			isPremiumContent: Boolean!
+			category: String
 		): Event
 		addOrder(products: [ID]!): Order
 		updateUser(

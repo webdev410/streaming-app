@@ -28,8 +28,15 @@ export default function Event() {
 				<Grid.Column computer={10} tablet={16} mobile={16}>
 					<PremiumBadge isPremiumContent={event.isPremiumContent} />
 					<h2 className="ui header">{event.eventTitle}</h2>
+					<p>
+						<span>Category:</span> {event.category}
+					</p>
+					<p>
+						<span>Event Date:</span>
+						{event.eventDate}
+					</p>
+					<span>Event Description</span>
 					<p>{event.eventDescription}</p>
-					<p>Event Start Date: {event.eventDate}</p>
 					{/* if user is premium and event is premiumContent show video, otherwise show error */}
 					<ReactPlayer url={event.eventLink} playing={true} />
 					<LikeButton

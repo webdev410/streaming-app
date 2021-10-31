@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import { Radio } from "semantic-ui-react";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_EVENT } from "../../utils/mutations";
-import { QUERY_EVENTS } from "../../utils/queries";
+import { QUERY_EVENTS, QUERY_CATEGORIES } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import EventList from "../EventList";
+import CategorySelect from "./CategorySelect";
 import RadioToggle from "../RadioToggle";
 export default function EventForm() {
 	const { loading, data } = useQuery(QUERY_EVENTS);
 	const eventList = data?.events;
 
 	const [toggleValue, setToggleValue] = useState(false);
-
 	const [formState, setFormState] = useState({
 		eventTitle: "",
 		eventDescription: "",
 		eventLink: "",
+		eventDate: "",
+		category: "",
 		isPremiumContent: toggleValue,
 	});
 	const [characterCount, setCharacterCount] = useState(0);
@@ -40,6 +42,22 @@ export default function EventForm() {
 		setFormState({ ...formState, isPremiumContent: toggleValue });
 	};
 
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+
+		if (name === "eventTitle" && value.length <= 120) {
+			setFormState({ ...formState, [name]: value });
+			setCharacterCount(value.length);
+			console.log(value.length);
+		}
+		if (name === "eventDate") {
+			console.log(value);
+			setFormState({ ...formState, [name]: value });
+		} else if (name !== "eventTitle") {
+			setFormState({ ...formState, [name]: value });
+		}
+	};
+
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 		try {
@@ -50,23 +68,12 @@ export default function EventForm() {
 					isPremiumContent: toggleValue,
 				},
 			});
+			console.log(data);
 			window.location.reload();
 		} catch (err) {
 			console.error(err);
 		}
 	};
-	const handleChange = (event) => {
-		const { name, value } = event.target;
-
-		if (name === "eventTitle" && value.length <= 120) {
-			setFormState({ ...formState, [name]: value });
-			setCharacterCount(value.length);
-			console.log(value.length);
-		} else if (name !== "eventTitle") {
-			setFormState({ ...formState, [name]: value });
-		}
-	};
-
 	return (
 		<div className="ui raised padded container segment">
 			<h2 className="ui header">Create a New Event</h2>
@@ -113,11 +120,29 @@ export default function EventForm() {
 							name="eventLink"
 							value={formState.eventLink}
 							onChange={handleChange}
-							placeholder="Event Link"
+							placeholder="Video Link"
 						/>
 					</div>
-					<div>
+					<div className="field">
+						<input
+							type="text"
+							name="category"
+							value={formState.category}
+							onChange={handleChange}
+							placeholder="Category"
+						/>
+					</div>
+					<div className="field">
+						<input
+							type="date"
+							name="eventDate"
+							value={formState.eventDate}
+							onChange={handleChange}
+							placeholder="Event Date"
+						/>
+					</div>
 
+					<div>
 						<div>
 							<h5>Premium Event?</h5>
 

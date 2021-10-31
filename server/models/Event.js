@@ -22,9 +22,10 @@ const eventSchema = new Schema({
 		default: false,
 	},
 	eventDate: {
-		type: Date,
-		default: Date.now,
-		get: (timestamp) => dateFormat(timestamp),
+		// type: Date,
+		// default: Date.now,
+		// get: (timestamp) => dateFormat(timestamp),
+		type: String,
 	},
 	createdAt: {
 		type: Date,
@@ -36,8 +37,8 @@ const eventSchema = new Schema({
 		ref: "User",
 	},
 	category: {
-		type: Schema.Types.ObjectId,
-		ref: "Category",
+		type: String,
+		// default: "Uncategorized",
 	},
 	likes: [
 		{
