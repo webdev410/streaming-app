@@ -94,6 +94,10 @@ span {
     font-weight: 600;
 }
 
+.orderDiv p {
+    line-height: 1em;
+}
+
 @media screen and (max-width: 620px) {
     .navLink {
         display: block;

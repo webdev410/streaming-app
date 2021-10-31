@@ -38,21 +38,44 @@ const Profile = () => {
 			<h2 className="ui header">
 				{userParam ? `${user.username}'s` : "Your"} Profile
 			</h2>
-			<p>User ID: {user._id}</p>
-			<p>Name: {user.name}</p>
-			<p>Username: {user.username}</p>
-			<p>Email: {user.email}</p>
+			<p>
+				<span>User ID:</span> {user._id}
+			</p>
+			<p>
+				<span>Name:</span>
+				{user.name}
+			</p>
+			<span>Username:</span>
+			<p>{user.username}</p>
+			<p>
+				<span>Email:</span>
+				{user.email}
+			</p>
 			<h3>Orders</h3>
 			{user.orders.map((order) => (
 				<div className="orderDiv" key={order._id}>
-					<p>Order Number: {order._id}</p>
-					<p>Purchased On: {order.purchaseDate}</p>
+					<p>
+						<span>Order Number: </span>
+						{order._id}
+					</p>
+					<p>
+						<span>Purchase Date:</span>
+						{order.purchaseDate}
+					</p>
 					{order.products.map((product) => (
 						<div key={product._id}>
-							<p>Product Name: {product.name}</p>
-							<p>Description: {product.description}</p>
-							<p>price: {product.price}</p>
-							<p>quantity: {product.quantity}</p>
+							<h4>
+								<span>Product Name: </span>
+								{product.name}
+							</h4>
+							<p>
+								<span>Product Description: </span>
+								{product.description}
+							</p>
+							<p>
+								<span>Product Price: </span>
+								{product.price}
+							</p>
 						</div>
 					))}
 				</div>
