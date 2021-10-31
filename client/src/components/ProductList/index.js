@@ -47,7 +47,7 @@ function ProductList() {
     <div className="ui container">
       <h2>Our Products:</h2>
       {state.products.length ? (
-        <div className="flex-row">
+        <div>
           {filterProducts().map((product) => (
             <ProductItem
               key={product._id}
@@ -60,7 +60,7 @@ function ProductList() {
           ))}
         </div>
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <h3 className="ui header">You haven't added any products yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
