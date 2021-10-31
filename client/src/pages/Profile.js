@@ -38,10 +38,10 @@ const Profile = () => {
 			<h2 className="ui header">
 				{userParam ? `${user.username}'s` : "Your"} Profile
 			</h2>
+			<p>User ID: {user._id}</p>
 			<p>Name: {user.name}</p>
 			<p>Username: {user.username}</p>
 			<p>Email: {user.email}</p>
-			<p>User ID: {user._id}</p>
 			<h3>Orders</h3>
 			{user.orders.map((order) => (
 				<div className="orderDiv" key={order._id}>
@@ -57,8 +57,6 @@ const Profile = () => {
 					))}
 				</div>
 			))}
-
-			
 		</div>
 	);
 };

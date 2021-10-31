@@ -190,6 +190,7 @@ const resolvers = {
 				const order = new Order({ products });
 
 				await User.findByIdAndUpdate(context.user._id, {
+					$set: { isPremium: true },
 					$push: { orders: order },
 				});
 
