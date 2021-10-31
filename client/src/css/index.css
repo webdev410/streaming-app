@@ -67,6 +67,11 @@ footer {
     color: #333;
 }
 
+span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
 .orderDiv {
     border: 1px solid black;
 }

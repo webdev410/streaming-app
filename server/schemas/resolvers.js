@@ -104,7 +104,6 @@ const resolvers = {
 						path: "orders.products",
 						populate: "category",
 					});
-					
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
@@ -133,7 +132,14 @@ const resolvers = {
 
 		addEvent: async (
 			parent,
-			{ eventTitle, eventDescription, eventLink, isPremiumContent },
+			{
+				eventTitle,
+				eventDescription,
+				eventLink,
+				isPremiumContent,
+				category,
+				eventDate,
+			},
 			context
 		) => {
 			if (context.user) {
@@ -141,7 +147,9 @@ const resolvers = {
 					eventTitle,
 					eventDescription,
 					eventLink,
+					eventDate,
 					isPremiumContent,
+					category,
 					user: context.user._id,
 				});
 				await User.findOneAndUpdate(

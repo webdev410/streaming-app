@@ -12,13 +12,13 @@ export default function EventForm() {
 	const eventList = data?.events;
 
 	const [toggleValue, setToggleValue] = useState(false);
-	const [categoryValue, setCategoryValue] = useState("");
 	const [formState, setFormState] = useState({
 		eventTitle: "",
 		eventDescription: "",
 		eventLink: "",
+		eventDate: "",
+		category: "",
 		isPremiumContent: toggleValue,
-		category: categoryValue,
 	});
 	const [characterCount, setCharacterCount] = useState(0);
 
@@ -41,6 +41,23 @@ export default function EventForm() {
 		setToggleValue(!toggleValue);
 		setFormState({ ...formState, isPremiumContent: toggleValue });
 	};
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+
+		if (name === "eventTitle" && value.length <= 120) {
+			setFormState({ ...formState, [name]: value });
+			setCharacterCount(value.length);
+			console.log(value.length);
+		}
+		if (name === "eventDate") {
+			console.log(value);
+			setFormState({ ...formState, [name]: value });
+		} else if (name !== "eventTitle") {
+			setFormState({ ...formState, [name]: value });
+		}
+	};
+
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 		try {
@@ -51,23 +68,12 @@ export default function EventForm() {
 					isPremiumContent: toggleValue,
 				},
 			});
+			console.log(data);
 			window.location.reload();
 		} catch (err) {
 			console.error(err);
 		}
 	};
-	const handleChange = (event) => {
-		const { name, value } = event.target;
-
-		if (name === "eventTitle" && value.length <= 120) {
-			setFormState({ ...formState, [name]: value });
-			setCharacterCount(value.length);
-			console.log(value.length);
-		} else if (name !== "eventTitle") {
-			setFormState({ ...formState, [name]: value });
-		}
-	};
-
 	return (
 		<div className="ui raised padded container segment">
 			<h2 className="ui header">Create a New Event</h2>
@@ -114,12 +120,28 @@ export default function EventForm() {
 							name="eventLink"
 							value={formState.eventLink}
 							onChange={handleChange}
-							placeholder="Event Link"
+							placeholder="Video Link"
 						/>
 					</div>
 					<div className="field">
-						<CategorySelect></CategorySelect>
+						<input
+							type="text"
+							name="category"
+							value={formState.category}
+							onChange={handleChange}
+							placeholder="Category"
+						/>
 					</div>
+					<div className="field">
+						<input
+							type="date"
+							name="eventDate"
+							value={formState.eventDate}
+							onChange={handleChange}
+							placeholder="Event Date"
+						/>
+					</div>
+
 					<div>
 						<div>
 							<h5>Premium Event?</h5>

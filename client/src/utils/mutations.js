@@ -39,6 +39,7 @@ export const ADD_EVENT = gql`
 		$eventTitle: String!
 		$eventDescription: String!
 		$eventLink: String
+		$eventDate: String
 		$isPremiumContent: Boolean!
 		$category: String
 	) {
@@ -47,12 +48,14 @@ export const ADD_EVENT = gql`
 			eventDescription: $eventDescription
 			eventLink: $eventLink
 			category: $category
+			eventDate: $eventDate
 			isPremiumContent: $isPremiumContent
 		) {
 			_id
 			eventTitle
 			eventDescription
 			eventLink
+			eventDate
 			isPremiumContent
 			category
 		}

@@ -1,30 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
 
-import { Dropdown } from "semantic-ui-react";
-import Loader from "../../components/Loader";
-
 const CategorySelect = () => {
-	const { loading, data } = useQuery(QUERY_CATEGORIES);
-
+	const [selectedCategory, setSelectedCategory] = useState("");
+	const { loading: loading1, data } = useQuery(QUERY_CATEGORIES);
 	const categories = data?.categories || [];
+
+	const handleCategorySelect = (event) => {
+		event.preventDefault();
+		setSelectedCategory({ selectedCategory: event.target.value });
+		console.log(selectedCategory);
+		// setFormState({ ...formState, category: selectedCategory });
+	};
 
 	console.log(categories);
 	return (
-		<main>
-			{loading ? (
+		<div>
+			{loading1 ? (
 				<div>Loading...</div>
 			) : (
-				<select name="category">
+				<select
+					value=""
+					name="category"
+					onChange={handleCategorySelect}
+				>
 					{categories.map((category) => (
-						<option key={category._id} value={category.name}>
+						<option
+							key={category._id}
+							name="category"
+							value={selectedCategory}
+						>
 							{category.name}
 						</option>
 					))}
 				</select>
 			)}
-		</main>
+		</div>
 	);
 };
 export default CategorySelect;

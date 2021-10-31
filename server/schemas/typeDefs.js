@@ -89,6 +89,7 @@ const typeDefs = gql`
 			eventTitle: String!
 			eventDescription: String!
 			eventLink: String
+			eventDate: String
 			isPremiumContent: Boolean!
 			category: String
 		): Event
