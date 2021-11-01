@@ -7,7 +7,7 @@ Our T.E.A.M. has created a video streaming service with free and premium content
 <enter link>
 
 ## Presentation
-https://github.com/JHU-Project-3/final-project/blob/eds_branch/Presentation/TEAM%20Stream%20Final.pptx
+https://github.com/JHU-Project-3/final-project/blob/main/Presentation/TEAM%20Stream%20Final.pptx
   
 ![logo (2)](https://user-images.githubusercontent.com/80861572/139608105-2bd7cf0a-826f-447d-8f48-60c9ba44bd02.png)
 
