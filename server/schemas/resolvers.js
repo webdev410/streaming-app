@@ -99,7 +99,6 @@ const resolvers = {
 		me: async (parent, args, context) => {
 			if (context.user) {
 				return await User.findOne({ _id: context.user._id })
-					.sort({ createdAt: -1 })
 					.populate("events")
 					.populate({
 						path: "orders.products",
@@ -109,7 +108,7 @@ const resolvers = {
 			throw new AuthenticationError("You need to be logged in!");
 		},
 		events: async (parent, args, context) => {
-			return Event.find().populate("user");
+			return Event.find().sort({ createdAt: -1 }).populate("user");
 		},
 		event: async (parent, { eventId }) => {
 			return Event.findOne({ _id: eventId });
