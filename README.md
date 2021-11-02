@@ -4,13 +4,12 @@
 Our T.E.A.M. has created a video streaming service with free and premium content.  The service provides the ability to purchase a premium membership and integrates social collaboration elements (likes, comments, chat).
 
 ## Demo Video (w/audio)
-<enter link>
+https://youtu.be/FcfAYE_MrRs
 
 ## Presentation
 https://github.com/JHU-Project-3/final-project/blob/main/Presentation/TEAM%20Stream%20Final.pptx
   
 ![logo (2)](https://user-images.githubusercontent.com/80861572/139608105-2bd7cf0a-826f-447d-8f48-60c9ba44bd02.png)
-
 
 #### Table of Contents
 1. [Stories](#stories)
