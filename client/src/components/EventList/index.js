@@ -34,7 +34,9 @@ const EventList = ({ events }) => {
 						<PremiumBadge
 							isPremiumContent={event.isPremiumContent}
 						/>
-						<h4 className="muted-text">{event.eventDate}</h4>
+						<h4 className="muted-text eventListText">
+							{event.eventDate}
+						</h4>
 						<ConditionalLink
 							className="conditionalLink"
 							children={event.eventTitle}
@@ -47,7 +49,9 @@ const EventList = ({ events }) => {
 							}
 						></ConditionalLink>
 
-						<p>{event.eventDescription}</p>
+						<p className="eventListText">
+							{event.eventDescription}
+						</p>
 					</div>
 				))}
 		</div>

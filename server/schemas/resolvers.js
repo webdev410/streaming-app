@@ -108,7 +108,7 @@ const resolvers = {
 			throw new AuthenticationError("You need to be logged in!");
 		},
 		events: async (parent, args, context) => {
-			return Event.find().populate("user");
+			return Event.find().sort({ createdAt: -1 }).populate("user");
 		},
 		event: async (parent, { eventId }) => {
 			return Event.findOne({ _id: eventId });

@@ -10,6 +10,13 @@ const Home = () => {
 
 	const { loading, data } = useQuery(QUERY_EVENTS);
 	const eventList = data?.events;
+	if (eventList?.length === 0) {
+		return (
+			<div className="ui raised padded container segment">
+				<h4>There are no events.</h4>
+			</div>
+		);
+	}
 	return (
 		<main className="ui raised padded container segment">
 			<div>
