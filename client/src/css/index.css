@@ -47,6 +47,7 @@ footer {
 .bigLetter {
     font-size: 150%;
     color: #0ed145;
+    margin-right: 0px;
 }
 
 .userCommentRow {

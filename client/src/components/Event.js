@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_EVENT } from "../utils/queries";
@@ -14,8 +14,7 @@ import { Table } from "semantic-ui-react";
 
 export default function Event() {
 	const { eventId } = useParams();
-	const { loading, data } = useQuery(QUERY_SINGLE_EVENT, {
-		// Pass the `thoughtId` URL parameter into query to retrieve this thought's data
+	const { data } = useQuery(QUERY_SINGLE_EVENT, {
 		variables: { eventId: eventId },
 	});
 	const event = data?.event || {};
@@ -34,10 +33,10 @@ export default function Event() {
 					<h5 className="text-center">{event.eventDate}</h5>
 					<p className="text-center">{event.eventDescription}</p>
 					<div className="align-center">
-						<Table className="ui collapsing table center aligned">
+						<Table className="ui single line unstackable table">
 							<Table.Header>
 								<Table.Row>
-									<Table.HeaderCell>
+									<Table.HeaderCell className="left aligned">
 										Category
 									</Table.HeaderCell>
 									<Table.HeaderCell className="right aligned">
@@ -47,7 +46,7 @@ export default function Event() {
 							</Table.Header>
 							<Table.Body>
 								<Table.Row>
-									<Table.Cell>{event.category}</Table.Cell>
+									<Table.Cell className="left aligned">{event.category}</Table.Cell>
 									<Table.Cell className="right aligned">
 										{event.eventDate}
 									</Table.Cell>
@@ -72,6 +71,7 @@ export default function Event() {
 						playing={true}
 						controls={true}
 						width={"100%"}
+						height={"auto"}
 					/>
 					<LikeButton
 						key={event._id}
