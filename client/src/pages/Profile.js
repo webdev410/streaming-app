@@ -55,70 +55,44 @@ const Profile = () => {
 					</Table.Row>
 				</Table.Body>
 			</Table>
-			<Table celled striped>
-				<Table.Header>
-					<Table.Row>
-						<Table.HeaderCell>Order #</Table.HeaderCell>
-						<Table.HeaderCell>Purchase Date</Table.HeaderCell>
-						<Table.HeaderCell>Product Name</Table.HeaderCell>
-						<Table.HeaderCell>Product Price</Table.HeaderCell>
-						<Table.HeaderCell>Product Description</Table.HeaderCell>
-					</Table.Row>
-				</Table.Header>
-				<Table.Body>
-					{user.orders.map((order) => (
-						<Table.Row>
-							<Table.Cell collapsing>{order._id}</Table.Cell>
-							<Table.Cell collapsing>
-								{order.purchaseDate}
-							</Table.Cell>
-							{order.products.map((product) => (
-								<>
-									<Table.Cell collapsing>
-										{product.price}
-									</Table.Cell>
-									<Table.Cell collapsing>
-										{product.name}
-									</Table.Cell>
-									<Table.Cell collapsing>
-										{product.description}
-									</Table.Cell>
-								</>
-							))}
-						</Table.Row>
-					))}
-				</Table.Body>
-			</Table>
-
 			<h3>Orders</h3>
-			{user.orders.map((order) => (
-				<div className="orderDiv" key={order._id}>
-					<p>
-						<span>Order Number: </span>
-						{order._id}
-					</p>
-					<p>
-						<span>Purchase Date:</span>
-						{order.purchaseDate}
-					</p>
-					{order.products.map((product) => (
-						<div key={product._id}>
-							<h4>
-								<span>Product Name: </span>
-								{product.name}
-							</h4>
-							<p>
-								<span>Product Description: </span>
-								{product.description}
-							</p>
-							<p>
-								<span>Product Price: </span>
-								{product.price}
-							</p>
-						</div>
-					))}
-				</div>
-			))}
+			{user.orders.length === 0 ? (
+				<h5>
+					You have no orders. Become a{" "}
+					<a href="/shop">premium member</a> today!
+				</h5>
+			) : (
+				<Table celled striped>
+					<Table.Header>
+						<Table.Row>
+							<Table.HeaderCell>Order #</Table.HeaderCell>
+							<Table.HeaderCell>Purchase Date</Table.HeaderCell>
+							<Table.HeaderCell>Product Name</Table.HeaderCell>
+							<Table.HeaderCell>Product Price</Table.HeaderCell>
+							<Table.HeaderCell>
+								Product Description
+							</Table.HeaderCell>
+						</Table.Row>
+					</Table.Header>
+					<Table.Body>
+						{user.orders.map((order) => (
+							<Table.Row>
+								<Table.Cell>{order._id}</Table.Cell>
+								<Table.Cell>{order.purchaseDate}</Table.Cell>
+								{order.products.map((product) => (
+									<>
+										<Table.Cell>{product.name}</Table.Cell>
+										<Table.Cell>{product.price}</Table.Cell>
+										<Table.Cell>
+											{product.description}
+										</Table.Cell>
+									</>
+								))}
+							</Table.Row>
+						))}
+					</Table.Body>
+				</Table>
+			)}
 		</div>
 	);
 };

@@ -22,10 +22,9 @@ export default function Premium() {
 				Home
 			</Link>
 			<Link to="/new-event" className="navLink">
-				New Event
+				Create Event
 			</Link>
 			<Link to="/me" className="navLink">
-				{/*{Auth.getProfile().data.name}'s profile*/}
 				Profile
 			</Link>
 

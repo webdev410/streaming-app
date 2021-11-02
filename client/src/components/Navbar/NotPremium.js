@@ -21,9 +21,6 @@ export default function NotPremium() {
 			<Link to="/" className="navLink">
 				Home
 			</Link>
-			<Link to="/new-event" className="navLink">
-				New Event
-			</Link>
 			<Link to="/me" className="navLink">
 				{/*{Auth.getProfile().data.name}'s profile*/}
 				Profile

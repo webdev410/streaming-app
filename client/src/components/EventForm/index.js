@@ -21,7 +21,7 @@ export default function EventForm() {
 		}
 	);
 	const user = data1?.me || data1?.user || {};
-
+	console.log(user);
 	const [toggleValue, setToggleValue] = useState(false);
 	const [formState, setFormState] = useState({
 		eventTitle: "",

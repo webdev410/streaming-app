@@ -94,12 +94,35 @@ span {
     font-weight: 600;
 }
 
+.orderDiv {
+    padding: 10px;
+}
+
 .orderDiv p {
     line-height: 1em;
+}
+
+.eventListText {
+    background-color: white;
 }
 
 @media screen and (max-width: 620px) {
     .navLink {
         display: block;
     }
+}
+
+.displayBlock {
+    display: block;
+}
+
+.text-center {
+    text-align: center !important;
+    line-height: 1em;
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }

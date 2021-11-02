@@ -99,6 +99,7 @@ const resolvers = {
 		me: async (parent, args, context) => {
 			if (context.user) {
 				return await User.findOne({ _id: context.user._id })
+					.sort({ createdAt: -1 })
 					.populate("events")
 					.populate({
 						path: "orders.products",
@@ -142,7 +143,7 @@ const resolvers = {
 			},
 			context
 		) => {
-			if (context.user.isPremium) {
+			if (context.user) {
 				const event = await Event.create({
 					eventTitle,
 					eventDescription,

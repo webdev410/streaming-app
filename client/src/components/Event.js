@@ -10,6 +10,7 @@ import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import LikeButton from "./LikeButton";
 import PremiumBadge from "./PremiumBadge";
+import { Table } from "semantic-ui-react";
 
 export default function Event() {
 	const { eventId } = useParams();
@@ -27,16 +28,45 @@ export default function Event() {
 			<Grid>
 				<Grid.Column computer={10} tablet={16} mobile={16}>
 					<PremiumBadge isPremiumContent={event.isPremiumContent} />
-					<h2 className="ui header">{event.eventTitle}</h2>
-					<p>
+					<h2 className="ui header text-center">
+						{event.eventTitle}
+					</h2>
+					<h5 className="text-center">{event.eventDate}</h5>
+					<p className="text-center">{event.eventDescription}</p>
+					<div className="align-center">
+						<Table className="ui collapsing table center aligned">
+							<Table.Header>
+								<Table.Row>
+									<Table.HeaderCell>
+										Category
+									</Table.HeaderCell>
+									<Table.HeaderCell className="right aligned">
+										Air Date
+									</Table.HeaderCell>
+								</Table.Row>
+							</Table.Header>
+							<Table.Body>
+								<Table.Row>
+									<Table.Cell>{event.category}</Table.Cell>
+									<Table.Cell className="right aligned">
+										{event.eventDate}
+									</Table.Cell>
+								</Table.Row>
+							</Table.Body>
+						</Table>
+					</div>
+					{/*
+					<p className="text-center">
 						<span>Category:</span> {event.category}
 					</p>
-					<p>
+					<p className="text-center">
 						<span>Event Date:</span>
 						{event.eventDate}
 					</p>
-					<span>Event Description</span>
-					<p>{event.eventDescription}</p>
+					<p className="text-center">
+						<span>Event Description</span>
+					</p>
+					<p className="text-center">{event.eventDescription}</p> */}
 					<ReactPlayer
 						url={event.eventLink}
 						playing={true}
