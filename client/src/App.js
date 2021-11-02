@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/index";
 import Event from "./components/Event";
 import Chat from "./components/Chat";
 import Profile from "./pages/Profile";

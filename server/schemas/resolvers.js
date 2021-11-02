@@ -142,7 +142,7 @@ const resolvers = {
 			},
 			context
 		) => {
-			if (context.user) {
+			if (context.user.isPremium) {
 				const event = await Event.create({
 					eventTitle,
 					eventDescription,

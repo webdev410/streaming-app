@@ -1,15 +1,26 @@
 import React, { useState } from "react";
 import { Radio } from "semantic-ui-react";
 import { useMutation, useQuery } from "@apollo/client";
+import { Redirect, useParams } from "react-router-dom";
+
 import { ADD_EVENT } from "../../utils/mutations";
-import { QUERY_EVENTS, QUERY_CATEGORIES } from "../../utils/queries";
+import { QUERY_EVENTS, QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
+
 import EventList from "../EventList";
-import CategorySelect from "./CategorySelect";
-import RadioToggle from "../RadioToggle";
+
 export default function EventForm() {
 	const { loading, data } = useQuery(QUERY_EVENTS);
 	const eventList = data?.events;
+
+	const { username: userParam } = useParams();
+	const { loading: loading1, data: data1 } = useQuery(
+		userParam ? QUERY_USER : QUERY_ME,
+		{
+			variables: { username: userParam },
+		}
+	);
+	const user = data1?.me || data1?.user || {};
 
 	const [toggleValue, setToggleValue] = useState(false);
 	const [formState, setFormState] = useState({
@@ -60,18 +71,25 @@ export default function EventForm() {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		try {
-			const { data } = await addEvent({
-				variables: {
-					...formState,
-					user: Auth.getProfile().data._id,
-					isPremiumContent: toggleValue,
-				},
-			});
-			console.log(data);
-			window.location.reload();
-		} catch (err) {
-			console.error(err);
+		if (user.isPremium) {
+			try {
+				const { data } = await addEvent({
+					variables: {
+						...formState,
+						user: Auth.getProfile().data._id,
+						isPremiumContent: toggleValue,
+					},
+				});
+				console.log(data);
+				window.location.reload();
+			} catch (err) {
+				console.error(err);
+			}
+		} else {
+			alert(
+				"You must be a premium member to create an event. Signup through the link in the navbar"
+			);
+			return;
 		}
 	};
 	return (
@@ -85,7 +103,9 @@ export default function EventForm() {
 				>
 					Character Count: {characterCount}/120
 					{error && (
-						<span className="ui error message">Something went wrong...</span>
+						<span className="ui error message">
+							Something went wrong...
+						</span>
 					)}
 				</p>
 
@@ -158,7 +178,11 @@ export default function EventForm() {
 						Submit
 					</button>
 					<pre>{JSON.stringify(error, null, 2)}</pre>
-					{error && <div className="ui error message">Something went wrong...</div>}
+					{error && (
+						<div className="ui error message">
+							Something went wrong...
+						</div>
+					)}
 				</form>
 
 				<div>
