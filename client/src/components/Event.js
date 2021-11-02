@@ -71,6 +71,7 @@ export default function Event() {
 						playing={true}
 						controls={true}
 						width={"100%"}
+						height={"auto"}
 					/>
 					<LikeButton
 						key={event._id}
