@@ -10,14 +10,11 @@ export default function NotPremium() {
 		Auth.logout();
 	};
 	return (
-		<>
-			<a href="/">
-				<img
-					className="ui bottom aligned small image"
-					src={logo}
-					alt="T.E.A.M. STEAM logo"
-				/>
-			</a>
+		<div className="d-flex justify-content-between">
+			<Link href="/">Stream</Link>
+			<Link to="/landing" className="navLink">
+				Landing
+			</Link>
 			<Link to="/" className="navLink">
 				Home
 			</Link>
@@ -32,6 +29,6 @@ export default function NotPremium() {
 			<Link to="#" className="navLink" onClick={logout}>
 				Logout
 			</Link>
-		</>
+		</div>
 	);
 }

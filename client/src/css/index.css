@@ -1,129 +1,14 @@
-/* Background image courtesy of https://pngtree.com/free-backgrounds, free background photos from pngtree.com */
-
-body {
-    margin: 10px;
-    background-image: url("../assets/—Pngtree—elegant abstract smooth swoosh speed_1179370.jpg");
-    background-size: cover;
-    height: calc(100vh - 10px);
-}
-
-.navLink {
-    margin: 10px;
-    font-size: 15px;
-    font-weight: 700;
-    color: white;
-}
-
-.navLink:hover {
-    color: rgba(255, 255, 255, 0.562);
-}
-
-.active {
-    color: #0ed145;
-}
-
-.eventDiv {
-    border: 1px black solid;
-    margin: 10px;
-    padding: 10px;
-}
-
-.cart {
-    background-color: #fff !important;
-}
-
-footer {
-    width: 100%;
-    color: #4183c4;
+.viewWindow {
     text-align: center;
-    font-weight: 600;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    border-top: 1px solid #4183c4;
+    height: 100vh;
+    margin: 0;
 }
 
-.bigLetter {
-    font-size: 150%;
-    color: #0ed145;
-    margin-right: 0px;
+.navHeight {
+    height: 3vh;
 }
 
-.userCommentRow {
-    padding: 10px;
-}
-
-.userCommentRow:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.userComment {
-    font-weight: 600;
-    font-size: 110%;
-}
-
-.hide {
-    display: none !important;
-}
-
-.disabledEvent {
-    background-image: url('/src/assets/premium-members-only.png');
-    background-size: 120px;
-}
-
-.conditionalLink {
-    font-size: 50px !important;
-}
-
-.muted-text {
-    margin: 10px 0px 5px 0px;
-    color: #333;
-}
-
-span {
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-.orderDiv {
-    border: 1px solid black;
-}
-
-.danger {
-    color: #dd0000;
-    font-weight: 600;
-}
-
-.orderDiv {
-    padding: 10px;
-}
-
-.orderDiv p {
-    line-height: 1em;
-}
-
-.eventListText {
-    background-color: white;
-}
-
-@media screen and (max-width: 620px) {
-    .navLink {
-        display: block;
-    }
-}
-
-.displayBlock {
-    display: block;
-}
-
-.text-center {
-    text-align: center !important;
-    line-height: 1em;
-}
-
-.align-center {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.App {
+    height: 97vh;
+    background-color: whitesmoke;
 }

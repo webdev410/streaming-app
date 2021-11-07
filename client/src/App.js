@@ -7,8 +7,8 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
-import Home from "./pages/Home";
+import "./css/App.css";
+import Events from "./pages/Events";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar/index";
@@ -22,6 +22,7 @@ import OrderHistory from "./pages/OrderHistory";
 import Detail from "./pages/Detail";
 import Shop from "./pages/Shop";
 import Footer from "./components/Footer";
+import Landing from "./pages/Landing";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
 	uri: "/graphql",
@@ -51,42 +52,56 @@ function App() {
 		<ApolloProvider client={client}>
 			<Router>
 				<StoreProvider>
-					<Navbar />
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/me">
-						<Profile />
-					</Route>
-					<Route exact path="/event/:eventId">
-						<Event />
-					</Route>
-					<Route exact path="/chat">
-						<Chat />
-					</Route>
-					<Route exact path="/login">
-						<Login />
-					</Route>
-					<Route exact path="/signup">
-						<Signup />
-					</Route>
-					<Route exact path="/new-event">
-						<EventForm />
-					</Route>
-					<Route exact path="/shop">
-						<Shop />
-					</Route>
-					<Route exact path="/success" component={Success} />
-					<Route
-						exact
-						path="/orderHistory"
-						component={OrderHistory}
-					/>
-					<Route exact path="/products/:id" component={Detail} />
-					<Route exact path="/orders" component={OrderHistory} />
+					<div className="viewWindow d-flex flex-column justify-content-between">
+						<Navbar className="navHeight" />
+						<div className="App">
+							<Route exact path="/events">
+								<Events />
+							</Route>
+							<Route exact path="/landing">
+								<Landing />
+							</Route>
+							<Route exact path="/me">
+								<Profile />
+							</Route>
+							<Route exact path="/event/:eventId">
+								<Event />
+							</Route>
+							<Route exact path="/chat">
+								<Chat />
+							</Route>
+							<Route exact path="/login">
+								<Login />
+							</Route>
+							<Route exact path="/signup">
+								<Signup />
+							</Route>
+							<Route exact path="/new-event">
+								<EventForm />
+							</Route>
+							<Route exact path="/shop">
+								<Shop />
+							</Route>
+							<Route exact path="/success" component={Success} />
+							<Route
+								exact
+								path="/orderHistory"
+								component={OrderHistory}
+							/>
+							<Route
+								exact
+								path="/products/:id"
+								component={Detail}
+							/>
+							<Route
+								exact
+								path="/orders"
+								component={OrderHistory}
+							/>
+						</div>
+					</div>
 				</StoreProvider>
 			</Router>
-			<Footer />
 		</ApolloProvider>
 	);
 }

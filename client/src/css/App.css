@@ -1,0 +1,86 @@
+:root {
+  --primary: #ff26a5;
+  --primaryHover: #ff26a55d;
+  --dark: #333;
+  --font2: {
+    font-family: 'Open Sans', sans-serif;
+  }
+  --font1: {
+    font-family: 'Raleway', sans-serif;
+  }
+}
+
+.hero {
+  background-image: url('../assets/bg-1.jpg');
+  height: 55vh;
+}
+
+.heroTitle {
+  color: white;
+  font-family: var(--font1);
+  font-size: 72px;
+}
+
+.btn-primary {
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 15px;
+  border-radius: 25px;
+  font-family: var(--font2) !important;
+  font-size: larger;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-primary::selection {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-family: var(--font2) !important;
+}
+
+.btn-secondary:hover {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--dark);
+}
+
+svg {
+  margin-left: 10px;
+}
+
+.eventCard {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 15px;
+}
+
+.eventRow {
+  padding: 20px;
+}
+
+.eventTitleDiv {
+  padding: 5vh;
+}
+
+.title {
+  font-size: xx-large;
+}
+
+.conditionalBtnLink {
+  font-size: small !important;
+}
+
+.eventPage {
+  background-color: whitesmoke;
+}
