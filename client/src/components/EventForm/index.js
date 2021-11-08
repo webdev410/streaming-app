@@ -93,100 +93,121 @@ export default function EventForm() {
 		}
 	};
 	return (
-		<div className="ui raised padded container segment">
-			<h2 className="ui header">Create a New Event</h2>
-			<div>
-				<p
-					className={`${
-						characterCount === 120 || error ? "danger" : ""
-					}`}
-				>
-					Character Count: {characterCount}/120
-					{error && (
-						<span className="ui error message">
-							Something went wrong...
-						</span>
-					)}
-				</p>
-
-				<form
-					className="ui form"
-					action="#"
-					method="post"
-					onSubmit={handleFormSubmit}
-				>
-					<div className="field">
-						<input
-							autoFocus
-							type="text"
-							name="eventTitle"
-							value={formState.eventTitle}
-							onChange={handleChange}
-							placeholder="Event Title"
-						/>
+		<div className="d-flex justify-content-center">
+			<div className="col-12 col-md-6">
+				<div className="boxShadow m-3">
+					<div className="d-flex justify-content-between">
+						<h2 className="">Create a New Event</h2>
+						<button className="customBtn" type="submit">
+							Save
+						</button>
 					</div>
-					<div className="field">
-						<input
-							type="text"
-							name="eventDescription"
-							value={formState.eventDescription}
-							onChange={handleChange}
-							placeholder="Event Description"
-						/>
-					</div>
-					<div className="field">
-						<input
-							type="text"
-							name="eventLink"
-							value={formState.eventLink}
-							onChange={handleChange}
-							placeholder="Video Link"
-						/>
-					</div>
-					<div className="field">
-						<input
-							type="text"
-							name="category"
-							value={formState.category}
-							onChange={handleChange}
-							placeholder="Category"
-						/>
-					</div>
-					<div className="field">
-						<input
-							type="date"
-							name="eventDate"
-							value={formState.eventDate}
-							onChange={handleChange}
-							placeholder="Event Date"
-						/>
-					</div>
-
+				</div>
+				<div className="boxShadow m-3">
 					<div>
-						<div>
-							<h5>Premium Event?</h5>
+						<form
+							className=""
+							action="#"
+							method="post"
+							onSubmit={handleFormSubmit}
+						>
+							<div className="form-group">
+								<label className="labelText">Event Title</label>
+								<p
+									className={`${
+										characterCount === 120 || error
+											? "danger"
+											: ""
+									}`}
+								>
+									Character Count: {characterCount}/120
+									{error && (
+										<span className="">
+											Something went wrong...
+										</span>
+									)}
+								</p>
+								<input
+									autoFocus
+									type="text"
+									name="eventTitle"
+									value={formState.eventTitle}
+									onChange={handleChange}
+									placeholder="Event Title"
+									className="form-control"
+								/>
+							</div>
+							<div className="form-group">
+								<label className="labelText">Event Date</label>
+								<input
+									type="date"
+									name="eventDate"
+									value={formState.eventDate}
+									onChange={handleChange}
+									placeholder="Event Date"
+									className="form-control"
+								/>
+							</div>
+							<div className="form-group">
+								<label className="labelText">
+									Premium Event
+								</label>
+								<Radio
+									toggle
+									name="isPremiumContent"
+									value={toggleValue}
+									onChange={handleToggle}
+									className="ml-3"
+								/>
+							</div>
+							<div className="form-group">
+								<label className="labelText">
+									Event Description
+								</label>
+								<input
+									type="text"
+									name="eventDescription"
+									value={formState.eventDescription}
+									onChange={handleChange}
+									placeholder="Event Description"
+									className="form-control"
+								/>
+							</div>
+							<div className="form-group">
+								<label className="labelText">Video Link</label>
+								<input
+									type="text"
+									name="eventLink"
+									value={formState.eventLink}
+									onChange={handleChange}
+									placeholder="Video Link"
+									className="form-control"
+								/>
+							</div>
+							<div className="form-group">
+								<label className="labelText">Category</label>
+								<input
+									type="text"
+									name="category"
+									value={formState.category}
+									onChange={handleChange}
+									placeholder="Category"
+									className="form-control"
+								/>
+							</div>
 
-							<Radio
-								toggle
-								name="isPremiumContent"
-								value={toggleValue}
-								onChange={handleToggle}
-							/>
-						</div>
+							<pre>{JSON.stringify(error, null, 2)}</pre>
+							{error && (
+								<div className="ui error message">
+									Something went wrong...
+								</div>
+							)}
+						</form>
+
+						{/* <div>
+							<EventList events={eventList} />
+						</div> */}
 					</div>
-					<button className="ui primary button" type="submit">
-						Submit
-					</button>
-					<pre>{JSON.stringify(error, null, 2)}</pre>
-					{error && (
-						<div className="ui error message">
-							Something went wrong...
-						</div>
-					)}
-				</form>
-
-				<div>
-					<EventList events={eventList} />
 				</div>
 			</div>
 		</div>

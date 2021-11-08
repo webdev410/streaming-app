@@ -62,7 +62,7 @@ svg {
 
 .eventCard {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  padding: 15px;
+  margin: 5px;
 }
 
 .eventRow {
@@ -83,4 +83,33 @@ svg {
 
 .eventPage {
   background-color: whitesmoke;
+}
+
+.labelText {
+  font-size: medium;
+  margin: 5px;
+}
+
+.form-group {
+  margin: 15px;
+  text-align: left;
+}
+
+.boxShadow {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.customBtn {
+  padding: 0px 20px 0px 20px;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.customBtn:hover {
+  background-color: var(--primaryHover);
 }
