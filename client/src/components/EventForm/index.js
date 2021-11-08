@@ -137,6 +137,7 @@ export default function EventForm() {
 									className="form-control"
 								/>
 							</div>
+
 							<div className="form-group">
 								<label className="labelText">Event Date</label>
 								<input
@@ -148,31 +149,7 @@ export default function EventForm() {
 									className="form-control"
 								/>
 							</div>
-							<div className="form-group">
-								<label className="labelText">
-									Premium Event
-								</label>
-								<Radio
-									toggle
-									name="isPremiumContent"
-									value={toggleValue}
-									onChange={handleToggle}
-									className="ml-3"
-								/>
-							</div>
-							<div className="form-group">
-								<label className="labelText">
-									Event Description
-								</label>
-								<input
-									type="text"
-									name="eventDescription"
-									value={formState.eventDescription}
-									onChange={handleChange}
-									placeholder="Event Description"
-									className="form-control"
-								/>
-							</div>
+
 							<div className="form-group">
 								<label className="labelText">Video Link</label>
 								<input
@@ -196,12 +173,40 @@ export default function EventForm() {
 								/>
 							</div>
 
-							<pre>{JSON.stringify(error, null, 2)}</pre>
+							<div className="form-group">
+								<label className="labelText">
+									Event Description
+								</label>
+								<textarea
+									type="text"
+									name="eventDescription"
+									value={formState.eventDescription}
+									onChange={handleChange}
+									placeholder="Event Description"
+									className="form-control"
+								/>
+							</div>
 							{error && (
 								<div className="ui error message">
 									Something went wrong...
 								</div>
 							)}
+							<div className="d-flex justify-content-center">
+								<div className="">
+									<label className="labelText ">
+										Premium Event
+									</label>
+									<div>
+										<Radio
+											toggle
+											name="isPremiumContent"
+											value={toggleValue}
+											onChange={handleToggle}
+											className="align-middle"
+										/>
+									</div>
+								</div>
+							</div>
 						</form>
 
 						{/* <div>
