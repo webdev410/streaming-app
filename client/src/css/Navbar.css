@@ -1,0 +1,17 @@
+.navLink {
+    font-size: x-large;
+}
+
+.navbar {
+    background-color: black !important;
+    padding: 15px;
+}
+
+.navbar svg {
+    color: white;
+}
+
+.navbar a {
+    color: white !important;
+    text-decoration: none;
+}

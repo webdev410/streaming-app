@@ -4,33 +4,41 @@ import Auth from "../../utils/auth";
 
 import logo from "../../assets/logo.png";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faHome,
+	faPlus,
+	faCalendarStar,
+	faUser,
+	faSignOut,
+} from "@fortawesome/pro-regular-svg-icons";
+
 export default function Premium() {
 	const logout = (event) => {
 		event.preventDefault();
 		Auth.logout();
 	};
 	return (
-		<>
-			<a href="/">
-				<img
-					className="ui bottom aligned small image"
-					src={logo}
-					alt="T.E.A.M. STEAM logo"
-				/>
-			</a>
+		<div className="d-flex justify-content-between nav navbar">
 			<Link to="/" className="navLink">
-				Home
+				T.E.A.M. STREAM
+			</Link>
+			<Link to="/landing" className="navLink">
+				<FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
+			</Link>
+			<Link to="/events" className="navLink">
+				<FontAwesomeIcon icon={faCalendarStar}></FontAwesomeIcon>
 			</Link>
 			<Link to="/new-event" className="navLink">
-				Create Event
+				<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
 			</Link>
 			<Link to="/me" className="navLink">
-				Profile
+				<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
 			</Link>
 
 			<Link to="#" className="navLink" onClick={logout}>
-				Logout
+				<FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon>
 			</Link>
-		</>
+		</div>
 	);
 }

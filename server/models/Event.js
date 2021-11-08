@@ -14,6 +14,10 @@ const eventSchema = new Schema({
 		required: "You need to have a description!",
 		trim: true,
 	},
+	eventImg: {
+		type: String,
+		default: "../../assets/img/events/default.png",
+	},
 	eventLink: {
 		type: String,
 	},

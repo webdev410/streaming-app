@@ -3,11 +3,10 @@ import Auth from "../../utils/auth";
 import { useParams } from "react-router";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import { QUERY_ME, QUERY_USER } from "../../utils/queries";
 import NotPremium from "./NotPremium";
 import Premium from "./Premium";
-
+import "../../css/Navbar.css";
 const Navbar = () => {
 	const logout = (event) => {
 		event.preventDefault();
@@ -28,24 +27,20 @@ const Navbar = () => {
 	}
 
 	return (
-		<div className="logo ui container">
-			<a href="/">
-				<img
-					className="ui bottom aligned small image"
-					src={logo}
-					alt="T.E.A.M. STEAM logo"
-				/>
-			</a>
-
-			<>
-				{/* Menu Items that will show when user is not logged in */}
-				<Link to="/login" className="navLink">
-					Login
-				</Link>
-				<Link to="/signup" className="navLink">
-					Signup
-				</Link>
-			</>
+		<div className="d-flex justify-content-between nav navbar">
+			{/* Menu Items that will show when user is not logged in */}
+			<Link to="/" className="navLink">
+				T.E.A.M. STREAM
+			</Link>
+			<Link to="/landing" className="navLink">
+				Landing
+			</Link>
+			<Link to="/login" className="navLink">
+				Login
+			</Link>
+			<Link to="/signup" className="navLink">
+				Signup
+			</Link>
 		</div>
 	);
 };
