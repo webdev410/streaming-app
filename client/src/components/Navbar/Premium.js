@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
-import logo from "../../assets/logo.png";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faHome,
@@ -11,7 +9,7 @@ import {
 	faCalendarStar,
 	faUser,
 	faSignOut,
-} from "@fortawesome/pro-regular-svg-icons";
+} from "@fortawesome/pro-solid-svg-icons";
 
 export default function Premium() {
 	const logout = (event) => {

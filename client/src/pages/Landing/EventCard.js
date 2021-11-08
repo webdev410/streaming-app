@@ -5,8 +5,6 @@ import PremiumBadge from "../../components/PremiumBadge";
 import Auth from "../../utils/auth";
 
 import eventImg from "../../assets/img/events/default.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/pro-solid-svg-icons";
 
 export default function EventCard({ events, user }) {
 	return (
