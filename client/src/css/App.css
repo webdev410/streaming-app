@@ -12,6 +12,7 @@
 
 .hero {
   background-image: url('../assets/bg-1.jpg');
+  background-size: cover;
   height: 55vh;
 }
 
