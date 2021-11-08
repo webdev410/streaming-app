@@ -4,6 +4,7 @@
 
 .navbar {
     background-color: black !important;
+    padding: 15px;
 }
 
 .navbar svg {
