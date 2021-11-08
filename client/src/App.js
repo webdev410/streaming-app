@@ -21,7 +21,6 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 import Detail from "./pages/Detail";
 import Shop from "./pages/Shop";
-import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
