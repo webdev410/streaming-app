@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { QUERY_ME, QUERY_USER } from "../../utils/queries";
 import NotPremium from "./NotPremium";
 import Premium from "./Premium";
+import Cart from "../Cart";
 import "../../css/Navbar.css";
 const Navbar = () => {
 	const logout = (event) => {
@@ -35,6 +36,7 @@ const Navbar = () => {
 			<Link to="/landing" className="navLink">
 				Landing
 			</Link>
+			<Cart />
 			<Link to="/login" className="navLink">
 				Login
 			</Link>

@@ -12,7 +12,7 @@ import {
 	faUser,
 	faSignOut,
 	faShoppingBag,
-} from "@fortawesome/pro-regular-svg-icons";
+} from "@fortawesome/pro-solid-svg-icons";
 
 export default function NotPremium() {
 	const logout = (event) => {

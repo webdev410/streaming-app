@@ -54,11 +54,14 @@ function App() {
 					<div className="viewWindow d-flex flex-column justify-content-between">
 						<Navbar className="navHeight" />
 						<div className="App">
-							<Route exact path="/events">
-								<Events />
+							<Route exact path="/">
+								<Landing />
 							</Route>
 							<Route exact path="/landing">
 								<Landing />
+							</Route>
+							<Route exact path="/events">
+								<Events />
 							</Route>
 							<Route exact path="/me">
 								<Profile />
