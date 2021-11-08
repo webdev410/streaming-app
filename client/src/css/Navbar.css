@@ -4,7 +4,6 @@
 
 .navbar {
     background-color: black !important;
-    color: white !important;
 }
 
 .navbar svg {
@@ -12,5 +11,6 @@
 }
 
 .navbar a {
+    color: white !important;
     text-decoration: none;
 }

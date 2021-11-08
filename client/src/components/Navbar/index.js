@@ -29,7 +29,9 @@ const Navbar = () => {
 	return (
 		<div className="d-flex justify-content-between nav navbar">
 			{/* Menu Items that will show when user is not logged in */}
-			<Link to="/">Stream</Link>
+			<Link to="/" className="navLink">
+				T.E.A.M. STREAM
+			</Link>
 			<Link to="/landing" className="navLink">
 				Landing
 			</Link>

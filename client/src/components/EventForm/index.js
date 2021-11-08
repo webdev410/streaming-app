@@ -94,7 +94,7 @@ export default function EventForm() {
 	};
 	return (
 		<div className="d-flex justify-content-center">
-			<div className="col-12 col-md-6">
+			<div className="col-12 col-lg-8 col-xl-6">
 				<div className="boxShadow m-3">
 					<div className="d-flex justify-content-between">
 						<h2 className="">Create a New Event</h2>
@@ -122,7 +122,7 @@ export default function EventForm() {
 								>
 									Character Count: {characterCount}/120
 									{error && (
-										<span className="">
+										<span className="alert alert-danger">
 											Something went wrong...
 										</span>
 									)}
@@ -187,7 +187,7 @@ export default function EventForm() {
 								/>
 							</div>
 							{error && (
-								<div className="ui error message">
+								<div className="alert alert-danger">
 									Something went wrong...
 								</div>
 							)}

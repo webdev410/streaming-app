@@ -25,7 +25,7 @@ export default function EventCard({ events, user }) {
 						<PremiumBadge
 							isPremiumContent={event.isPremiumContent}
 						/>
-						<div style={{ width: "25rem" }}>
+						<div style={{ width: "20rem" }}>
 							<Card.Img src={eventImg} variant="top" />
 							<Card.Body>
 								<Card.Title as="h5">

@@ -4,30 +4,44 @@ import Auth from "../../utils/auth";
 
 import logo from "../../assets/logo.png";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faHome,
+	faPlus,
+	faCalendarStar,
+	faUser,
+	faSignOut,
+	faShoppingBag,
+} from "@fortawesome/pro-regular-svg-icons";
+
 export default function NotPremium() {
 	const logout = (event) => {
 		event.preventDefault();
 		Auth.logout();
 	};
+
 	return (
-		<div className="d-flex justify-content-between">
-			<Link href="/">Stream</Link>
-			<Link to="/landing" className="navLink">
-				Landing
-			</Link>
+		<div className="d-flex justify-content-between nav navbar">
 			<Link to="/" className="navLink">
-				Home
+				T.E.A.M. STREAM
+			</Link>
+			<Link to="/landing" className="navLink">
+				<FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
+			</Link>
+			<Link to="/events" className="navLink">
+				<FontAwesomeIcon icon={faCalendarStar}></FontAwesomeIcon>
+			</Link>
+			<Link to="/new-event" className="navLink">
+				<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
 			</Link>
 			<Link to="/me" className="navLink">
-				{/*{Auth.getProfile().data.name}'s profile*/}
-				Profile
+				<FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
 			</Link>
-
 			<Link to="/shop" className="navLink">
-				Premium Membership
+				<FontAwesomeIcon icon={faShoppingBag}></FontAwesomeIcon>
 			</Link>
 			<Link to="#" className="navLink" onClick={logout}>
-				Logout
+				<FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon>
 			</Link>
 		</div>
 	);

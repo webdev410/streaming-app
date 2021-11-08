@@ -20,7 +20,9 @@ export default function Premium() {
 	};
 	return (
 		<div className="d-flex justify-content-between nav navbar">
-			<Link to="/">STREAM</Link>
+			<Link to="/" className="navLink">
+				T.E.A.M. STREAM
+			</Link>
 			<Link to="/landing" className="navLink">
 				<FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
 			</Link>
